@@ -18,7 +18,7 @@ function cargarNoticias()
    
      $.ajax({
          
-        url: "http://mgh-preprod.xly.es/jsonapi/node/MTG",
+        url: "http://mgh-preprod.xly.es/jsonapi/node/MTG?include=field_image",
         type: "GET",
         dataType: "JSON",
         data:{},
@@ -33,9 +33,11 @@ function cargarNoticias()
             resultado = res; 
           
            
-              for (var i = 0; i < resultado.length; i++)
+              for (var i = 0; i < resultado.data.length; i++)
             {
-                $("#listaResultados").append("<li> un resultado por registro</li>");
+                pieza = formatearNoticia(resultado, i);
+               // $("#listaResultados").append("<li> "+resultado.data[i].attributes.title+"</li>");
+               $("#listaResultados").append(pieza);
 
             }
             $("#listaResultados").listview('refresh');
@@ -49,5 +51,17 @@ function cargarNoticias()
     });
     
     
+    
+
+}
+
+function formatearNoticia(resultado, posicion){
+    titulo = resultado.data[posicion].attributes.title
+    resumen = resultado.data[posicion].attributes.body.summary
+    cuerpo = resultado.data[posicion].attributes.body.value
+    
+          
+    pieza = "<li>"+titulo+"<br>"+cuerpo+"</li>"
+    return pieza;
 
 }
