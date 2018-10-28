@@ -10,8 +10,47 @@ function inicioApp()
 {
     
   cargarNoticias()
+  obtenerNoticiaPortada()
     
 }
+
+function obtenerNoticiaPortada(){
+    
+     $.ajax({
+         
+        url: "http://mgh-preprod.xly.es/jsonapi/node/Tienda?page[limit]=1",
+        type: "GET",
+        dataType: "JSON",
+        data:{},
+        async:true,
+       
+        //data: "q=Montevideo&lang=es",
+        //data: JSON.stringify({email: email, pwd: pwd}),
+        success: function (res) {
+
+            //alert('funciona');
+            console.log(res);
+            resultado = res; 
+          
+           
+              for (var i = 0; i < resultado.data.length; i++)
+            {
+                pieza = formatearNoticiaCompleta(resultado, i);
+               // $("#listaResultados").append("<li> "+resultado.data[i].attributes.title+"</li>");
+               $("#portada").append(pieza);
+
+            }
+            $("#portada").listview('refresh');
+           
+           
+           
+
+        }
+        
+
+    });
+}
+
 
 function cargarNoticias()
 {
@@ -66,6 +105,18 @@ function formatearNoticia(resultado, posicion){
 
 }
 
+
+function formatearNoticiaCompleta(resultado, posicion){
+    titulo = resultado.data[posicion].attributes.title
+    resumen = resultado.data[posicion].attributes.body.summary
+    cuerpo = resultado.data[posicion].attributes.body.value
+    
+    
+          
+    pieza = "<div>"+titulo+"<br>"+cuerpo+"</div>"
+    return pieza;
+
+}
 
 
 
