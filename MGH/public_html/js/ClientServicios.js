@@ -65,3 +65,27 @@ function formatearNoticia(resultado, posicion){
     return pieza;
 
 }
+
+
+
+
+function obtenerLocalizacion()
+{
+     navigator.geolocation.getCurrentPosition(onSuccess, onErrorNav);
+
+}
+
+function onSuccess(position) {
+  // alert(position.coords.latitude +" : " + position.coords.longitude);
+    var lat = position.coords.latitude;
+    var longitud = position.coords.longitude;
+    
+    $("#mapGoogle").attr("src", "https://www.google.com/maps/embed/v1/directions?key=AIzaSyDmrGuARK5rJ6ZJOt7j6cjsSH1f7-dyL_Y&origin="+lat+","+longitud+"&destination=Montevideo+Gaming+House,+Colonia+1761A,+11200+Montevideo");
+    
+}
+
+function onErrorNav(error) {
+    alert('code: '    + error.code    + '\n' +
+'message: ' + error.message + '\n');
+
+}
