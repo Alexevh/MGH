@@ -21,9 +21,9 @@ and open the template in the editor.
 
         <div id="inicio" data-role="page" >
 
-            <div data-role="header">
+            <div data-role="header"  data-id="main-header"  data-position="fixed">
                 <a href="#nav-panel" data-icon="bars" data-iconpos="notext">Menu</a>
-                <img src="img/panelsuperior.png" alt="" id="PanelSuperior"/>
+                <img src="img/panelsuperior.png" alt="" id="PanelSuperior" style="margin-bottom: 10px"/>
             </div><!-- /header -->
 
             <div role="main" class="ui-content">
@@ -33,28 +33,22 @@ and open the template in the editor.
 
             </div><!-- /content -->
 
-            <div data-role="footer">
-                <div id="navegacionAnonima" data-role="navbar">
-                    <ul>
-                        <li><a href="#ContadorVidas" class="ui-btn">Contador de vidas</a></li>
-                        <li><a href="#Eventos" class="ui-btn">Eventos</a></li>
-                    </ul>
-                </div>
-
-                <div id="navegacionRegistrada" data-role="navbar" >
-                    <ul>
-                        <li><a href="#ruling"  class="ui-btn-active">Reglas EDH</a></li>
-                        <li><a href="#contacto" onclick="obtenerLocalizacion()" class="ui-btn">Contacto</a></li>
-                        <li><a href="#cartasBan" class="ui-btn">Lista de baneos</a></li>
-                    </ul>
-                </div>
-            </div><!-- /footer -->
+           <div data-role="footer" data-id="foo1" data-position="fixed">
+	<div data-role="navbar">
+		<ul>
+			<li><a href="#inicio" class="ui-btn-active" data-theme="b">Inicio</a></li>
+			<li><a href="#contador" data-theme="b">Contador de vidas</a></li>
+			<li><a href="#dados" data-theme="b">Dados</a></li>
+			<li><a href="#contacto" data-theme="b">Contacto</a></li>
+		</ul>
+	</div><!-- /navbar -->
+</div><!-- /footer --><!-- /footer -->
 
         </div><!-- /page -->
 
         <div id="contacto" data-role="page" >
 
-            <div data-role="header">
+            <div data-role="header" >
                 <a href="#nav-panel" data-icon="bars" data-iconpos="notext">Menu</a>
                 <h2>Contacto :</h2>
 
@@ -92,7 +86,7 @@ and open the template in the editor.
 
         <div id="ruling" data-role="page" >
 
-            <div data-role="header">
+            <div data-role="header"   >
                 <h1>Reglas de EDH</h1>
                 <a href="#nav-panel" data-icon="bars" data-iconpos="notext">Menu</a>
             </div><!-- /header -->
