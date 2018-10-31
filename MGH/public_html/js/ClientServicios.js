@@ -18,7 +18,7 @@ function obtenerNoticiaPortada(){
     
      $.ajax({
          
-        url: "http://mgh-preprod.xly.es/jsonapi/node/Tienda?page[limit]=1",
+        url: "http://mgh-preprod.xly.es/jsonapi/node/Tienda?page[limit]=1&sort=-nid",
         type: "GET",
         dataType: "JSON",
         data:{},

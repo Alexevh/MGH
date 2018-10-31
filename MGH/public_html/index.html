@@ -15,16 +15,26 @@ and open the template in the editor.
 
         <script src="js/ClientServicios.js" type="text/javascript"></script>
         <link href="css/tablas.css" rel="stylesheet" type="text/css"/>
+        <script src="js/splash.js" type="text/javascript"></script>
+
     </head>
 
     <body>
+        <div data-role="page" data-theme="b" id="splash" style="background-color: #d16806;" class="center-screen"> 
 
+            <div class="splash">
+                <img src="img/logo.png" alt="splash" />
+                <h3>Cargando la aplicacion</h3>
+            </div>
+        </div>
         <div id="inicio" data-role="page" >
 
-            <div data-role="header"  data-id="main-header"  data-position="fixed">
-                <a href="#nav-panel" data-icon="bars" data-iconpos="notext">Menu</a>
-                <img src="img/panelsuperior.png" alt="" id="PanelSuperior" style="margin-bottom: 10px"/>
-            </div><!-- /header -->
+             <div id="cabezalInicio"></div>
+            <script>
+                $(function () {
+                    $("#cabezalInicio").load("cabezal.html");
+                });
+            </script>
 
             <div role="main" class="ui-content">
                 <div id="portada"  data-inset="true">
@@ -33,33 +43,25 @@ and open the template in the editor.
 
             </div><!-- /content -->
 
-           <div data-role="footer" data-id="foo1" data-position="fixed">
-	<div data-role="navbar">
-		<ul>
-			<li><a href="#inicio" class="ui-btn-active" data-theme="b">Inicio</a></li>
-			<li><a href="#contador" data-theme="b">Contador de vidas</a></li>
-			<li><a href="#dados" data-theme="b">Dados</a></li>
-			<li><a href="#contacto" data-theme="b">Contacto</a></li>
-		</ul>
-	</div><!-- /navbar -->
-</div><!-- /footer --><!-- /footer -->
+            <div id="pieInicio"></div>
+            <script>
+                $(function () {
+                    $("#pieInicio").load("footer.html");
+                });
+            </script>
 
         </div><!-- /page -->
 
         <div id="contacto" data-role="page" >
 
-            <div data-role="header" >
-                <a href="#nav-panel" data-icon="bars" data-iconpos="notext">Menu</a>
-                <h2>Contacto :</h2>
-
-            </div><!-- /header -->
+              <div id="cabezalContacto"></div>
+            <script>
+                $(function () {
+                    $("#cabezalContacto").load("cabezal.html");
+                });
+            </script>
 
             <div role="main" class="ui-content">
-
-
-
-
-
                 <b>MGH:</b>
                 <br>
                 <ul>
@@ -79,17 +81,22 @@ and open the template in the editor.
 
             </div><!-- /content -->
 
-            <div data-role="footer">
-                <h4>MGH </h4>
-            </div><!-- /footer -->
+            <div id="pieContacto"></div>
+            <script>
+                $(function () {
+                    $("#pieContacto").load("footer.html");
+                });
+            </script>
         </div><!-- /page -->
 
         <div id="ruling" data-role="page" >
 
-            <div data-role="header"   >
-                <h1>Reglas de EDH</h1>
-                <a href="#nav-panel" data-icon="bars" data-iconpos="notext">Menu</a>
-            </div><!-- /header -->
+              <div id="cabezalReglas"></div>
+            <script>
+                $(function () {
+                    $("#cabezalReglas").load("cabezal.html");
+                });
+            </script>
 
             <div role="main" class="ui-content">
 
@@ -135,8 +142,12 @@ and open the template in the editor.
                     </li></ul>
 
 
-
-
+                <div id="pieReglas"></div>
+                <script>
+                    $(function () {
+                        $("#pieReglas").load("footer.html");
+                    });
+                </script>
 
 
 
@@ -150,12 +161,14 @@ and open the template in the editor.
 
         <div id="cartasBan" data-role="page" >
 
-            <div data-role="header">
-                <h1>Lista de cartas baneadas</h1>
-                <a href="#nav-panel" data-icon="bars" data-iconpos="notext">Menu</a>
-            </div><!-- /header -->
+              <div id="cabezalCartasBaneadas"></div>
+            <script>
+                $(function () {
+                    $("#cabezalCartasBaneadas").load("cabezal.html");
+                });
+            </script>
 
-            <div role="main" class="ui-content">
+            <div role="main" class="ui-content"> 
 
 
 
@@ -208,14 +221,17 @@ and open the template in the editor.
                     </tbody></table>
             </div><!-- /content -->
 
-            <div data-role="footer">
-                <h4>MGH </h4>
-            </div><!-- /footer -->
+             <div id="pieCartasBan"></div>
+                <script>
+                    $(function () {
+                        $("#pieCartasBan").load("footer.html");
+                    });
+                </script>
         </div><!-- /page -->
 
-        <div data-role="panel" data-position-fixed="true" data-display="push" data-theme="b" id="nav-panel">
+      <div data-role="panel" data-position-fixed="true" data-display="push" data-theme="b" id="nav-panel" data-position="left">
             <ul data-role="listview">
-                <li data-icon="delete"><a href="#inicio" data-rel="close">Cerrar menu</a></li>
+                <li data-icon="delete"><a href="" data-rel="close">Cerrar menu</a></li>
                 <li><a href="#inicio">Inicio</a></li>
                 <li><a href="#eventos">Eventos</a></li>
                 <li><a href="#cartasBan">Cartas baneadas</a></li>
