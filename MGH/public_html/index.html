@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
+Sistema APP para MGH
 -->
 <html>
     <head>
@@ -12,13 +10,15 @@ and open the template in the editor.
         <link href="css/jquery.mobile-1.4.5.min.css" rel="stylesheet" type="text/css"/>
         <script src="js/jquery-1.11.1.min.js" type="text/javascript"></script>
         <script src="js/jquery.mobile-1.4.5.min.js" type="text/javascript"></script>
-
         <script src="js/ClientServicios.js" type="text/javascript"></script>
         <link href="css/tablas.css" rel="stylesheet" type="text/css"/>
         <script src="js/splash.js" type="text/javascript"></script>
-
+        <link href="css/dados.css" rel="stylesheet" type="text/css"/>
+        <script src="js/dados.js" type="text/javascript"></script>
+        <script src="js/utilidades.js" type="text/javascript"></script>
+        <script src="js/contador.js" type="text/javascript"></script>
+        <link href="css/vidas.css" rel="stylesheet" type="text/css"/>
     </head>
-
     <body>
         <div data-role="page" data-theme="b" id="splash" style="background-color: #d16806;" class="center-screen"> 
 
@@ -29,7 +29,7 @@ and open the template in the editor.
         </div>
         <div id="inicio" data-role="page" >
 
-             <div id="cabezalInicio"></div>
+            <div id="cabezalInicio"></div>
             <script>
                 $(function () {
                     $("#cabezalInicio").load("cabezal.html");
@@ -49,12 +49,11 @@ and open the template in the editor.
                     $("#pieInicio").load("footer.html");
                 });
             </script>
-
         </div><!-- /page -->
 
         <div id="contacto" data-role="page" >
 
-              <div id="cabezalContacto"></div>
+            <div id="cabezalContacto"></div>
             <script>
                 $(function () {
                     $("#cabezalContacto").load("cabezal.html");
@@ -91,7 +90,7 @@ and open the template in the editor.
 
         <div id="ruling" data-role="page" >
 
-              <div id="cabezalReglas"></div>
+            <div id="cabezalReglas"></div>
             <script>
                 $(function () {
                     $("#cabezalReglas").load("cabezal.html");
@@ -99,9 +98,6 @@ and open the template in the editor.
             </script>
 
             <div role="main" class="ui-content">
-
-
-
                 <h2>Reglas vigentes :</h2>
                 <b>903.</b>&nbsp;<b>Commander</b>
                 <ul><li> <b>903.1.</b>&nbsp;En la variante Commander, cada mazo es liderado por una criatura legendaria designada como el comandante de ese mazo. La variante Commander fue creada y popularizada por fanáticos; existe un comité de reglas independiente que mantiene recursos adicionales en MTGCommander.net. La variante Commander usa todas las reglas normales para un juego de Magic, con los siguientes agregados.
@@ -149,19 +145,12 @@ and open the template in the editor.
                     });
                 </script>
 
-
-
-
             </div><!-- /content -->
-
-            <div data-role="footer">
-                <h4>MGH </h4>
-            </div><!-- /footer -->
         </div><!-- /page -->
 
         <div id="cartasBan" data-role="page" >
 
-              <div id="cabezalCartasBaneadas"></div>
+            <div id="cabezalCartasBaneadas"></div>
             <script>
                 $(function () {
                     $("#cabezalCartasBaneadas").load("cabezal.html");
@@ -221,15 +210,84 @@ and open the template in the editor.
                     </tbody></table>
             </div><!-- /content -->
 
-             <div id="pieCartasBan"></div>
-                <script>
-                    $(function () {
-                        $("#pieCartasBan").load("footer.html");
-                    });
-                </script>
+            <div id="pieCartasBan"></div>
+            <script>
+                $(function () {
+                    $("#pieCartasBan").load("footer.html");
+                });
+            </script>
         </div><!-- /page -->
 
-      <div data-role="panel" data-position-fixed="true" data-display="push" data-theme="b" id="nav-panel" data-position="left">
+        <div id="dados" data-role="page" >
+            <script>
+
+            </script>
+
+            <div id="cabezalDados"></div>
+            <script>
+                $(function () {
+                    $("#cabezalDados").load("cabezal.html");
+                });
+            </script>
+
+            <div role="main" class="ui-content">
+
+                <div id="mesaDados" class="center-screen">
+                    <img src="img/dados/animacion.gif" alt=""/>
+
+                </div>
+
+            </div><!-- /content -->
+
+
+            <div id="pieDados"></div>
+            <script>
+                $(function () {
+
+                    $("#pieDados").load("controlesDados.html");
+                });
+            </script>
+        </div><!-- /page -->
+
+
+         <div id="contadorVidas" data-role="page" >
+            <script>
+
+            </script>
+
+            <div id="cabezalcontadorVidas"></div>
+            <script>
+                $(function () {
+                    $("#cabezalcontadorVidas").load("cabezal.html");
+                });
+            </script>
+
+            <div role="main" class="ui-content">
+                
+                <div id="J1"></div>
+                <script>
+                $(function () {
+
+                    $("#J1").load("contadorVidas.html");
+                });
+            </script>
+               
+
+            </div><!-- /content -->
+
+
+            <div id="piecontadorVidas"></div>
+            <script>
+                $(function () {
+
+                    $("#piecontadorVidas").load("footer.html");
+                });
+            </script>
+        </div><!-- /page -->
+        
+        
+
+        <div data-role="panel" data-position-fixed="true" data-display="push" data-theme="b" id="nav-panel" data-position="left">
             <ul data-role="listview">
                 <li data-icon="delete"><a href="" data-rel="close">Cerrar menu</a></li>
                 <li><a href="#inicio">Inicio</a></li>
@@ -240,7 +298,7 @@ and open the template in the editor.
                 <li><a href="#">Tienda</a></li>
                 <li><a href="#contacto">Contacto</a></li>
                 <li><a href="#ruling">Reglas EDH</a></li>
-                <li><a href="#">Contador de vidas</a></li>
+                <li><a href="#contadorVidas">Contador de vidas</a></li>
                 <li><a href="#">Dados</a></li>      
             </ul>
         </div><!-- /panel -->
