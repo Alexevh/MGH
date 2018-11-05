@@ -18,21 +18,25 @@ function sumar(numeroJugador)
             $("#Jugador1").empty();
             jugador1++;
             $("#Jugador1").append(jugador1);
+            $("#Veneno1").append(veneno1);
             break;
         case 2:
             $("#Jugador2").empty();
             jugador2++;
-            $("#Jugador2").append(jugador1);
+            $("#Jugador2").append(jugador2);
+            $("#Veneno2").append(veneno2);
             break;
         case 3:
             $("#Jugador3").empty();
             jugador3++;
-            $("#Jugador3").append(jugador1);
+            $("#Jugador3").append(jugador3);
+            $("#Veneno3").append(veneno3);
             break;
         case 4:
             $("#Jugador4").empty();
             jugador1++;
-            $("#Jugador4").append(jugador1);
+            $("#Jugador4").append(jugador4);
+            $("#Veneno4").append(veneno4);
             break;
             }
 }
