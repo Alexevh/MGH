@@ -70,13 +70,23 @@ Sistema APP para MGH
                 </ul>
 
 
+                <!--
                 <iframe id="mapGoogle"
                         width="600"
                         height="450"
                         frameborder="0" style="border:0"
                         src="" allowfullscreen>
                 </iframe>
-
+                -->
+                <center>
+                       <div id="openMap"></div>
+                 <script>
+                $(function () {
+                    $("#openMap").load("openMap.html");
+                });
+            </script>
+                </center>
+             
 
             </div><!-- /content -->
 
@@ -219,17 +229,18 @@ Sistema APP para MGH
         </div><!-- /page -->
 
         <div id="dados" data-role="page" >
-            <script>
-
-            </script>
+        
 
             <div id="cabezalDados"></div>
             <script>
                 $(function () {
+                    
                     $("#cabezalDados").load("cabezal.html");
                 });
             </script>
 
+            
+               
             <div role="main" class="ui-content">
 
                 <div id="mesaDados" class="center-screen">
@@ -291,7 +302,7 @@ Sistema APP para MGH
             <ul data-role="listview">
                 <li data-icon="delete"><a href="" data-rel="close">Cerrar menu</a></li>
                 <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#eventos">Eventos</a></li>
+                <li><a href="#PaginaEventos">Eventos</a></li>
                 <li><a href="#cartasBan">Cartas baneadas</a></li>
                 <li><a href="#">MTG</a></li>
                 <li><a href="#">Miniaturas</a></li>
@@ -302,5 +313,64 @@ Sistema APP para MGH
                 <li><a href="#">Dados</a></li>      
             </ul>
         </div><!-- /panel -->
+        
+        
+        
+        <div id="PaginaEventos" data-role="page" >
+
+            <div id="cabezalPaginaEventos"></div>
+            <script>
+                $(function () {
+                    $("#cabezalPaginaEventos").load("cabezal.html");
+                });
+            </script>
+
+            <div role="main" class="ui-content">
+                <ul id="listaNoticiaEventos" data-role="listview" data-inset="true" >
+                    
+                 
+                </ul> 
+              
+              
+             
+
+            </div><!-- /content -->
+
+            <div id="piePaginaEventos"></div>
+            <script>
+                $(function () {
+                    $("#piePaginaEventos").load("footer.html");
+                });
+            </script>
+        </div><!-- /page -->
+        
+        
+        
+         <div id="PaginaDetalleNoticia" data-role="page" >
+
+            <div id="cabezalPaginaDetalleNoticia"></div>
+            <script>
+                $(function () {
+                    $("#cabezalPaginaDetalleNoticia").load("cabezal.html");
+                });
+            </script>
+
+            <div role="main" class="ui-content">
+                <div id="contenidoDetalle">
+                    
+                </div>
+              
+              
+             
+
+            </div><!-- /content -->
+
+            <div id="piePaginaDetalleNoticia"></div>
+            <script>
+                $(function () {
+                    $("#piePaginaDetalleNoticia").load("footer.html");
+                });
+            </script>
+        </div><!-- /page -->
     </body>
 </html>

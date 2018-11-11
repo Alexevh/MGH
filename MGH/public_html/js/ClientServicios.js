@@ -11,8 +11,165 @@ function inicioApp()
     
   cargarNoticias()
   obtenerNoticiaPortada()
+  cargarNoticiasEventos()
     
 }
+
+
+function obtenerNoticiasPorCategoria(categoria, cantidad)
+{
+      $.ajax({
+         
+        url: "http://mgh-preprod.xly.es/jsonapi/node/"+categoria+"?page[limit]="+cantidad+"&sort=-nid",
+        type: "GET",
+        dataType: "JSON",
+        data:{},
+        async:true,
+       
+        //data: "q=Montevideo&lang=es",
+        //data: JSON.stringify({email: email, pwd: pwd}),
+        success: function (res) {
+
+            //alert('funciona');
+            console.log(res);
+            resultado = res; 
+            
+           
+              for (var i = 0; i < resultado.data.length; i++)
+            {
+                pieza = formatearNoticiaCompleta(resultado, i);
+               // $("#listaResultados").append("<li> "+resultado.data[i].attributes.title+"</li>");
+               listaNoticias[i]=pieza;
+
+            }
+            
+            return listaNoticias;     
+
+        }
+        
+
+    });
+}
+
+
+function cargarNoticiasEventos()
+{
+    
+    $.ajax({
+         
+        url: "http://mgh-preprod.xly.es/jsonapi/node/Eventos?page[limit]=5&sort=-nid",
+        type: "GET",
+        dataType: "JSON",
+        data:{},
+        async:true,
+       
+        //data: "q=Montevideo&lang=es",
+        //data: JSON.stringify({email: email, pwd: pwd}),
+        success: function (res) {
+
+            //alert('funciona');
+            console.log(res);
+            resultado = res; 
+            
+           
+            for (var i = 0; i < resultado.data.length; i++)
+            {
+                pieza = obtenerCabezalNoticiaEventos(resultado, i);
+               
+                 $("#listaNoticiaEventos").append(pieza);
+
+            }
+            $("#listaNoticiaEventos").refresh();
+            
+              
+
+        }
+        
+
+    });
+
+      
+    
+}
+
+
+//Dado un resultado y una posicion devuelvo una pieza para el cabezal de la lista de noticias
+// Cada registro de la lista de la pagina debe mostrar el titulo formateado.
+// 
+// Lo optmimo es refactorizar esto para hacer que ademas de los parametros tambien reciba la categoria
+// cuando yo lo hice me dara un error con la variable que decia que no estaba definida
+// 
+//
+////
+function obtenerCabezalNoticiaEventos(resultado, i)
+{
+    titulo = resultado.data[i].attributes.title;
+    
+    pieza = "<li><a href='#PaginaDetalleNoticia' data-idprod='" + 
+            resultado.data[i].attributes.uuid + 
+            "' onclick='cargarDetalle($(this))'>" +
+            "<img src='img/logo.png'></img>"+
+            resultado.data[i].attributes.title + 
+            "</a> <a class='ui-btn  ui-btn-icon-right'href='#'</a></li>"
+
+    return pieza;
+}
+
+
+//Funcion para cargar el detalle de la noticia seleccionada
+function cargarDetalle(lnk)
+{
+    var uuid = lnk.attr("data-idprod");
+  
+    $.ajax({
+         
+        url: "http://mgh-preprod.xly.es/jsonapi/node/Eventos/"+uuid,
+        type: "GET",
+        dataType: "JSON",
+        data:{},
+        async:false,     
+        success: function (res) {
+
+            //alert('funciona');
+            console.log(res);
+            resultado = res;            
+            
+            $("#contenidoDetalle").html("<p> "+resultado.data.attributes.body.value+"</p>");
+            
+        }
+        
+
+    });
+    
+   
+
+}
+
+
+
+//Dada una categoria y una noticia la cargamos
+function obtenerNoticiaPorUUID(categoria, uuid)
+{
+       $.ajax({
+         
+        url: "http://mgh-preprod.xly.es/jsonapi/node/"+categoria+"/"+uuid,
+        type: "GET",
+        dataType: "JSON",
+        data:{},
+        async:true,     
+        success: function (res) {
+
+            //alert('funciona');
+            console.log(res);
+            resultado = res;            
+            return resultado;
+            
+        }
+        
+
+    });
+}
+
 
 function obtenerNoticiaPortada(){
     
