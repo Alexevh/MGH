@@ -3,21 +3,26 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+ var listaNoticias = new Array();
+
 $(document).ready(inicioApp);
+ 
 
 
 function inicioApp()
 {
-    
-  cargarNoticias()
-  obtenerNoticiaPortada()
-  cargarNoticiasEventos()
+  obtenerNoticiaPortada();
+  cargarEventos();
+  cargarMiniaturas();
     
 }
 
-
+// Dada una categoria y una cantidad esta funcion tiene como responsabilidad poblar
+// la pagina de noticias correspondiente con los registros de una liosta de noticias
+// para la categoria dada//
 function obtenerNoticiasPorCategoria(categoria, cantidad)
 {
+    
       $.ajax({
          
         url: "http://mgh-preprod.xly.es/jsonapi/node/"+categoria+"?page[limit]="+cantidad+"&sort=-nid",
@@ -26,70 +31,41 @@ function obtenerNoticiasPorCategoria(categoria, cantidad)
         data:{},
         async:true,
        
-        //data: "q=Montevideo&lang=es",
-        //data: JSON.stringify({email: email, pwd: pwd}),
         success: function (res) {
 
             //alert('funciona');
             console.log(res);
             resultado = res; 
             
-           
-              for (var i = 0; i < resultado.data.length; i++)
+            for (var i = 0; i < resultado.data.length; i++)
             {
-                pieza = formatearNoticiaCompleta(resultado, i);
-               // $("#listaResultados").append("<li> "+resultado.data[i].attributes.title+"</li>");
-               listaNoticias[i]=pieza;
+                pieza = obtenerCabezalNoticia(categoria, resultado, i);
+               
+                 $("#listaNoticia"+categoria).append(pieza);
 
             }
+            $("#listaNoticia"+categoria).refresh();
             
-            return listaNoticias;     
 
         }
-        
-
     });
 }
 
 
-function cargarNoticiasEventos()
+//Esta funcion llama a obtenerNoticias 
+function cargarEventos()
 {
-    
-    $.ajax({
-         
-        url: "http://mgh-preprod.xly.es/jsonapi/node/Eventos?page[limit]=5&sort=-nid",
-        type: "GET",
-        dataType: "JSON",
-        data:{},
-        async:true,
-       
-        //data: "q=Montevideo&lang=es",
-        //data: JSON.stringify({email: email, pwd: pwd}),
-        success: function (res) {
+  
+  obtenerNoticiasPorCategoria("Eventos", 5);
+  
+}
 
-            //alert('funciona');
-            console.log(res);
-            resultado = res; 
-            
-           
-            for (var i = 0; i < resultado.data.length; i++)
-            {
-                pieza = obtenerCabezalNoticiaEventos(resultado, i);
-               
-                 $("#listaNoticiaEventos").append(pieza);
-
-            }
-            $("#listaNoticiaEventos").refresh();
-            
-              
-
-        }
-        
-
-    });
-
-      
-    
+//Esta funcion llama a obtenerNoticias 
+function cargarMiniaturas()
+{
+  
+  obtenerNoticiasPorCategoria("Miniaturas", 5);
+  
 }
 
 
@@ -101,13 +77,13 @@ function cargarNoticiasEventos()
 // 
 //
 ////
-function obtenerCabezalNoticiaEventos(resultado, i)
+function obtenerCabezalNoticia(categoria, resultado, i)
 {
     titulo = resultado.data[i].attributes.title;
     
     pieza = "<li><a href='#PaginaDetalleNoticia' data-idprod='" + 
             resultado.data[i].attributes.uuid + 
-            "' onclick='cargarDetalle($(this))'>" +
+            "' data-cat='"+categoria +"' onclick='cargarDetalle($(this))'>" +
             "<img src='img/logo.png'></img>"+
             resultado.data[i].attributes.title + 
             "</a> <a class='ui-btn  ui-btn-icon-right'href='#'</a></li>"
@@ -120,10 +96,11 @@ function obtenerCabezalNoticiaEventos(resultado, i)
 function cargarDetalle(lnk)
 {
     var uuid = lnk.attr("data-idprod");
-  
+    var categoria = lnk.attr("data-cat");
+    
     $.ajax({
          
-        url: "http://mgh-preprod.xly.es/jsonapi/node/Eventos/"+uuid,
+        url: "http://mgh-preprod.xly.es/jsonapi/node/"+categoria+"/"+uuid,
         type: "GET",
         dataType: "JSON",
         data:{},
@@ -137,12 +114,8 @@ function cargarDetalle(lnk)
             $("#contenidoDetalle").html("<p> "+resultado.data.attributes.body.value+"</p>");
             
         }
-        
-
     });
     
-   
-
 }
 
 
@@ -209,47 +182,7 @@ function obtenerNoticiaPortada(){
 }
 
 
-function cargarNoticias()
-{
-   
-     $.ajax({
-         
-        url: "http://mgh-preprod.xly.es/jsonapi/node/MTG?include=field_image",
-        type: "GET",
-        dataType: "JSON",
-        data:{},
-        async:true,
-       
-        //data: "q=Montevideo&lang=es",
-        //data: JSON.stringify({email: email, pwd: pwd}),
-        success: function (res) {
 
-            //alert('funciona');
-            console.log(res);
-            resultado = res; 
-          
-           
-              for (var i = 0; i < resultado.data.length; i++)
-            {
-                pieza = formatearNoticia(resultado, i);
-               // $("#listaResultados").append("<li> "+resultado.data[i].attributes.title+"</li>");
-               $("#listaResultados").append(pieza);
-
-            }
-            $("#listaResultados").listview('refresh');
-           
-           
-           
-
-        }
-        
-
-    });
-    
-    
-    
-
-}
 
 function formatearNoticia(resultado, posicion){
     titulo = resultado.data[posicion].attributes.title
@@ -296,4 +229,90 @@ function onErrorNav(error) {
     alert('code: '    + error.code    + '\n' +
 'message: ' + error.message + '\n');
 
+}
+
+
+
+
+// Funciones obsoletas, se dejan aqui por las dudas que necesitemos reusar algo pero se van a borrar//
+function cargarNoticias()
+{
+   
+     $.ajax({
+         
+        url: "http://mgh-preprod.xly.es/jsonapi/node/MTG?include=field_image",
+        type: "GET",
+        dataType: "JSON",
+        data:{},
+        async:true,
+       
+        //data: "q=Montevideo&lang=es",
+        //data: JSON.stringify({email: email, pwd: pwd}),
+        success: function (res) {
+
+            //alert('funciona');
+            console.log(res);
+            resultado = res; 
+          
+           
+              for (var i = 0; i < resultado.data.length; i++)
+            {
+                pieza = formatearNoticia(resultado, i);
+               // $("#listaResultados").append("<li> "+resultado.data[i].attributes.title+"</li>");
+               $("#listaResultados").append(pieza);
+
+            }
+            $("#listaResultados").listview('refresh');
+           
+           
+           
+
+        }
+        
+
+    });
+    
+    
+    
+
+}
+
+function cargarNoticiasEventos()
+{
+    
+    $.ajax({
+         
+        url: "http://mgh-preprod.xly.es/jsonapi/node/Eventos?page[limit]=5&sort=-nid",
+        type: "GET",
+        dataType: "JSON",
+        data:{},
+        async:true,
+       
+        //data: "q=Montevideo&lang=es",
+        //data: JSON.stringify({email: email, pwd: pwd}),
+        success: function (res) {
+
+            //alert('funciona');
+            console.log(res);
+            resultado = res; 
+            
+           
+            for (var i = 0; i < resultado.data.length; i++)
+            {
+                pieza = obtenerCabezalNoticia("Eventos", resultado, i);
+               
+                 $("#listaNoticiaEventos").append(pieza);
+
+            }
+            $("#listaNoticiaEventos").refresh();
+            
+              
+
+        }
+        
+
+    });
+
+      
+    
 }

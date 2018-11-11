@@ -305,7 +305,7 @@ Sistema APP para MGH
                 <li><a href="#PaginaEventos">Eventos</a></li>
                 <li><a href="#cartasBan">Cartas baneadas</a></li>
                 <li><a href="#">MTG</a></li>
-                <li><a href="#">Miniaturas</a></li>
+                <li><a href="#PaginaMiniaturas">Miniaturas</a></li>
                 <li><a href="#">Tienda</a></li>
                 <li><a href="#contacto">Contacto</a></li>
                 <li><a href="#ruling">Reglas EDH</a></li>
@@ -340,6 +340,35 @@ Sistema APP para MGH
             <script>
                 $(function () {
                     $("#piePaginaEventos").load("footer.html");
+                });
+            </script>
+        </div><!-- /page -->
+        
+        
+         <div id="PaginaMiniaturas" data-role="page" >
+
+            <div id="cabezalPaginaMiniaturas"></div>
+            <script>
+                $(function () {
+                    $("#cabezalPaginaMiniaturas").load("cabezal.html");
+                });
+            </script>
+
+            <div role="main" class="ui-content">
+                <ul id="listaNoticiaMiniaturas" data-role="listview" data-inset="true" >
+                    
+                 
+                </ul> 
+              
+              
+             
+
+            </div><!-- /content -->
+
+            <div id="piePaginaMiniaturas"></div>
+            <script>
+                $(function () {
+                    $("#piePaginaMiniaturas").load("footer.html");
                 });
             </script>
         </div><!-- /page -->
