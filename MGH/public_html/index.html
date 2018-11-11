@@ -79,14 +79,14 @@ Sistema APP para MGH
                 </iframe>
                 -->
                 <center>
-                       <div id="openMap"></div>
-                 <script>
-                $(function () {
-                    $("#openMap").load("openMap.html");
-                });
-            </script>
+                    <div id="openMap"></div>
+                    <script>
+                        $(function () {
+                            $("#openMap").load("openMap.html");
+                        });
+                    </script>
                 </center>
-             
+
 
             </div><!-- /content -->
 
@@ -229,18 +229,18 @@ Sistema APP para MGH
         </div><!-- /page -->
 
         <div id="dados" data-role="page" >
-        
+
 
             <div id="cabezalDados"></div>
             <script>
                 $(function () {
-                    
+
                     $("#cabezalDados").load("cabezal.html");
                 });
             </script>
 
-            
-               
+
+
             <div role="main" class="ui-content">
 
                 <div id="mesaDados" class="center-screen">
@@ -261,7 +261,7 @@ Sistema APP para MGH
         </div><!-- /page -->
 
 
-         <div id="contadorVidas" data-role="page" >
+        <div id="contadorVidas" data-role="page" >
             <script>
 
             </script>
@@ -274,15 +274,15 @@ Sistema APP para MGH
             </script>
 
             <div role="main" class="ui-content">
-                
+
                 <div id="J1"></div>
                 <script>
-                $(function () {
+                    $(function () {
 
-                    $("#J1").load("contadorVidas.html");
-                });
-            </script>
-               
+                        $("#J1").load("contadorVidas.html");
+                    });
+                </script>
+
 
             </div><!-- /content -->
 
@@ -295,8 +295,8 @@ Sistema APP para MGH
                 });
             </script>
         </div><!-- /page -->
-        
-        
+
+
 
         <div data-role="panel" data-position-fixed="true" data-display="push" data-theme="b" id="nav-panel" data-position="left">
             <ul data-role="listview">
@@ -304,36 +304,28 @@ Sistema APP para MGH
                 <li><a href="#inicio">Inicio</a></li>
                 <li><a href="#PaginaEventos">Eventos</a></li>
                 <li><a href="#cartasBan">Cartas baneadas</a></li>
-                <li><a href="#">MTG</a></li>
+                <li><a href="#PaginaMTG">MTG</a></li>
                 <li><a href="#PaginaMiniaturas">Miniaturas</a></li>
-                <li><a href="#">Tienda</a></li>
+                <li><a href="#PaginaTienda">Tienda</a></li>
                 <li><a href="#contacto">Contacto</a></li>
                 <li><a href="#ruling">Reglas EDH</a></li>
                 <li><a href="#contadorVidas">Contador de vidas</a></li>
-                <li><a href="#">Dados</a></li>      
+                <li><a href="#dados">Dados</a></li>      
             </ul>
         </div><!-- /panel -->
-        
-        
-        
-        <div id="PaginaEventos" data-role="page" >
 
+
+
+        <div id="PaginaEventos" data-role="page" >
             <div id="cabezalPaginaEventos"></div>
             <script>
                 $(function () {
                     $("#cabezalPaginaEventos").load("cabezal.html");
                 });
             </script>
-
             <div role="main" class="ui-content">
                 <ul id="listaNoticiaEventos" data-role="listview" data-inset="true" >
-                    
-                 
                 </ul> 
-              
-              
-             
-
             </div><!-- /content -->
 
             <div id="piePaginaEventos"></div>
@@ -343,26 +335,18 @@ Sistema APP para MGH
                 });
             </script>
         </div><!-- /page -->
-        
-        
-         <div id="PaginaMiniaturas" data-role="page" >
 
+
+        <div id="PaginaMiniaturas" data-role="page" >
             <div id="cabezalPaginaMiniaturas"></div>
             <script>
                 $(function () {
                     $("#cabezalPaginaMiniaturas").load("cabezal.html");
                 });
             </script>
-
             <div role="main" class="ui-content">
-                <ul id="listaNoticiaMiniaturas" data-role="listview" data-inset="true" >
-                    
-                 
+                <ul id="listaNoticiaMiniaturas" data-role="listview" data-inset="true" >  
                 </ul> 
-              
-              
-             
-
             </div><!-- /content -->
 
             <div id="piePaginaMiniaturas"></div>
@@ -372,10 +356,49 @@ Sistema APP para MGH
                 });
             </script>
         </div><!-- /page -->
+
+        <div id="PaginaMTG" data-role="page" >
+            <div id="cabezalPaginaMTG"></div>
+            <script>
+                $(function () {
+                    $("#cabezalPaginaMTG").load("cabezal.html");
+                });
+            </script>
+            <div role="main" class="ui-content">
+                <ul id="listaNoticiaMTG" data-role="listview" data-inset="true" >  
+                </ul> 
+            </div><!-- /content -->
+
+            <div id="piePaginaMTG"></div>
+            <script>
+                $(function () {
+                    $("#piePaginaMTG").load("footer.html");
+                });
+            </script>
+        </div><!-- /page -->
         
-        
-        
-         <div id="PaginaDetalleNoticia" data-role="page" >
+          <div id="PaginaTienda" data-role="page" >
+            <div id="cabezalPaginaTienda"></div>
+            <script>
+                $(function () {
+                    $("#cabezalPaginaTienda").load("cabezal.html");
+                });
+            </script>
+            <div role="main" class="ui-content">
+                <ul id="listaNoticiaTienda" data-role="listview" data-inset="true" >  
+                </ul> 
+            </div><!-- /content -->
+
+            <div id="piePaginaTienda"></div>
+            <script>
+                $(function () {
+                    $("#piePaginaTienda").load("footer.html");
+                });
+            </script>
+        </div><!-- /page -->
+
+
+        <div id="PaginaDetalleNoticia" data-role="page" >
 
             <div id="cabezalPaginaDetalleNoticia"></div>
             <script>
@@ -386,12 +409,8 @@ Sistema APP para MGH
 
             <div role="main" class="ui-content">
                 <div id="contenidoDetalle">
-                    
-                </div>
-              
-              
-             
 
+                </div>
             </div><!-- /content -->
 
             <div id="piePaginaDetalleNoticia"></div>
