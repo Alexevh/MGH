@@ -1,0 +1,53 @@
+
+.contador{
+    background-color: red;
+    max-width: 100%;
+    height:500px;
+    position: relative;
+}
+
+.izquierda {
+    background-color: #bbb;
+    width: 100%;
+    height: 10%;
+    float: left;
+    text-align: center;
+   
+}
+
+.mainVidas {
+    background-color: whitesmoke;
+    width: 100%;
+    height: 80%;
+    float: left;
+    text-align: center;
+    font-size: 8vw;
+
+}
+
+
+.derecha {
+    background-color: #bbb;
+    width: 100%;
+    height: 10%;
+    float: left;
+    text-align: center;
+  
+}
+
+#Veneno1{
+
+    position: absolute;
+    text-align: center;
+    font-size: 2vw;
+    margin-left: 55%;
+    margin-top: -6%;
+    color: red;
+
+}
+
+
+.imgVeneno{
+    width: 10%;
+    height: 30%;
+}
