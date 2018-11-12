@@ -32,21 +32,15 @@ function obtenerNoticiasPorCategoria(categoria, cantidad)
         data: {},
         async: true,
         success: function (res) {
-
-            //alert('funciona');
             console.log(res);
             resultado = res;
-
             for (var i = 0; i < resultado.data.length; i++)
             {
                 pieza = obtenerCabezalNoticia(categoria, resultado, i);
 
                 $("#listaNoticia" + categoria).append(pieza);
-
             }
             $("#listaNoticia" + categoria).refresh();
-
-
         }
     });
 }
@@ -55,30 +49,22 @@ function obtenerNoticiasPorCategoria(categoria, cantidad)
 //Esta funcion llama a obtenerNoticias 
 function cargarEventos()
 {
-
     obtenerNoticiasPorCategoria("Eventos", 5);
-
 }
 
 //Esta funcion llama a obtenerNoticias 
 function cargarMiniaturas()
 {
-
     obtenerNoticiasPorCategoria("Miniaturas", 5);
-
 }
 
 function cargarTienda()
 {
-
     obtenerNoticiasPorCategoria("Tienda", 5);
-
 }
 function cargarMTG()
 {
-
     obtenerNoticiasPorCategoria("MTG", 5);
-
 }
 
 
@@ -132,13 +118,9 @@ function cargarDetalle(lnk)
         data: {},
         async: false,
         success: function (res) {
-
-            //alert('funciona');
             console.log(res);
             resultado = res;
-
             $("#contenidoDetalle").html("<p> " + resultado.data.attributes.body.value + "</p>");
-
         }
     });
 
@@ -156,15 +138,10 @@ function obtenerNoticiaPorUUID(categoria, uuid)
         data: {},
         async: true,
         success: function (res) {
-
-            //alert('funciona');
             console.log(res);
             resultado = res;
             return resultado;
-
         }
-
-
     });
 }
 
@@ -177,30 +154,17 @@ function obtenerNoticiaPortada() {
         dataType: "JSON",
         data: {},
         async: true,
-        //data: "q=Montevideo&lang=es",
-        //data: JSON.stringify({email: email, pwd: pwd}),
         success: function (res) {
-
-            //alert('funciona');
             console.log(res);
             resultado = res;
-
-
             for (var i = 0; i < resultado.data.length; i++)
             {
                 pieza = formatearNoticiaCompleta(resultado, i);
                 // $("#listaResultados").append("<li> "+resultado.data[i].attributes.title+"</li>");
                 $("#portada").append(pieza);
-
             }
             $("#portada").listview('refresh');
-
-
-
-
         }
-
-
     });
 }
 
@@ -211,8 +175,6 @@ function formatearNoticia(resultado, posicion) {
     titulo = resultado.data[posicion].attributes.title
     resumen = resultado.data[posicion].attributes.body.summary
     cuerpo = resultado.data[posicion].attributes.body.value
-
-
     pieza = "<li>" + titulo + "<br>" + cuerpo + "</li>"
     return pieza;
 
@@ -223,9 +185,6 @@ function formatearNoticiaCompleta(resultado, posicion) {
     titulo = resultado.data[posicion].attributes.title
     resumen = resultado.data[posicion].attributes.body.summary
     cuerpo = resultado.data[posicion].attributes.body.value
-
-
-
     pieza = "<div>" + titulo + "<br>" + cuerpo + "</div>"
     return pieza;
 
@@ -236,22 +195,17 @@ function formatearNoticiaCompleta(resultado, posicion) {
 function obtenerLocalizacion()
 {
     navigator.geolocation.getCurrentPosition(onSuccess, onErrorNav);
-
 }
 
 function onSuccess(position) {
-    // alert(position.coords.latitude +" : " + position.coords.longitude);
     var lat = position.coords.latitude;
     var longitud = position.coords.longitude;
-
     $("#mapGoogle").attr("src", "https://www.google.com/maps/embed/v1/directions?key=AIzaSyDmrGuARK5rJ6ZJOt7j6cjsSH1f7-dyL_Y&origin=" + lat + "," + longitud + "&destination=Montevideo+Gaming+House,+Colonia+1761A,+11200+Montevideo");
-
 }
 
 function onErrorNav(error) {
     alert('code: ' + error.code + '\n' +
             'message: ' + error.message + '\n');
-
 }
 
 
@@ -270,32 +224,16 @@ function cargarNoticias()
         //data: "q=Montevideo&lang=es",
         //data: JSON.stringify({email: email, pwd: pwd}),
         success: function (res) {
-
-            //alert('funciona');
             console.log(res);
             resultado = res;
-
-
             for (var i = 0; i < resultado.data.length; i++)
             {
                 pieza = formatearNoticia(resultado, i);
-                // $("#listaResultados").append("<li> "+resultado.data[i].attributes.title+"</li>");
                 $("#listaResultados").append(pieza);
-
             }
             $("#listaResultados").listview('refresh');
-
-
-
-
         }
-
-
     });
-
-
-
-
 }
 
 function cargarNoticiasEventos()
@@ -310,26 +248,15 @@ function cargarNoticiasEventos()
         //data: "q=Montevideo&lang=es",
         //data: JSON.stringify({email: email, pwd: pwd}),
         success: function (res) {
-
-            //alert('funciona');
             console.log(res);
             resultado = res;
-
-
             for (var i = 0; i < resultado.data.length; i++)
             {
                 pieza = obtenerCabezalNoticia("Eventos", resultado, i);
-
                 $("#listaNoticiaEventos").append(pieza);
-
             }
             $("#listaNoticiaEventos").refresh();
-
-
-
         }
-
-
     });
 
 
