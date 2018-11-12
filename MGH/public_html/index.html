@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<!--
+Sistema APP para MGH
+-->
+<html>
+    <head>
+        <title>MGH - APP</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="css/jquery.mobile-1.4.5.min.css" rel="stylesheet" type="text/css"/>
+        <script src="js/jquery-1.11.1.min.js" type="text/javascript"></script>
+        <script src="js/jquery.mobile-1.4.5.min.js" type="text/javascript"></script>
+        <script src="js/ClientServicios.js" type="text/javascript"></script>
+        <link href="css/tablas.css" rel="stylesheet" type="text/css"/>
+        <script src="js/splash.js" type="text/javascript"></script>
+        <link href="css/dados.css" rel="stylesheet" type="text/css"/>
+        <script src="js/dados.js" type="text/javascript"></script>
+        <script src="js/utilidades.js" type="text/javascript"></script>
+        <script src="js/contador.js" type="text/javascript"></script>
+        <link href="css/vidas.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body>
+        <div data-role="page" data-theme="b" id="splash" style="background-color: #d16806;" class="center-screen"> 
+
+            <div class="splash">
+                <img src="img/logo.png" alt="splash" />
+                <h3>Cargando la aplicacion</h3>
+            </div>
+        </div>
+        <div id="inicio" data-role="page" >
+
+            <div id="cabezalInicio"></div>
+            <script>
+                $(function () {
+                    $("#cabezalInicio").load("cabezal.html");
+                });
+            </script>
+
+            <div role="main" class="ui-content">
+                <div id="portada"  data-inset="true">
+
+                </div>
+
+            </div><!-- /content -->
+
+            <div id="pieInicio"></div>
+            <script>
+                $(function () {
+                    $("#pieInicio").load("footer.html");
+                });
+            </script>
+        </div><!-- /page -->
+
+        <div id="contacto" data-role="page" >
+
+            <div id="cabezalContacto"></div>
+            <script>
+                $(function () {
+                    $("#cabezalContacto").load("cabezal.html");
+                });
+            </script>
+
+            <div role="main" class="ui-content">
+                <b>MGH:</b>
+                <br>
+                <ul>
+                    <li><b>Direccion : </b> Colonia 1761A, 11200 Montevideo</li>
+                    <li><b>Telefono : <a href="tel:098 981 797">098 981 797</a> </b> </li>
+                    <li><b>Correo : </b> mgh@mgh.com</li>
+                </ul>
+
+
+                <!--
+                <iframe id="mapGoogle"
+                        width="600"
+                        height="450"
+                        frameborder="0" style="border:0"
+                        src="" allowfullscreen>
+                </iframe>
+                -->
+                <center>
+                    <div id="openMap"></div>
+                    <script>
+                        $(function () {
+                            $("#openMap").load("openMap.html");
+                        });
+                    </script>
+                </center>
+
+
+            </div><!-- /content -->
+
+            <div id="pieContacto"></div>
+            <script>
+                $(function () {
+                    $("#pieContacto").load("footer.html");
+                });
+            </script>
+        </div><!-- /page -->
+
+        <div id="ruling" data-role="page" >
+
+            <div id="cabezalReglas"></div>
+            <script>
+                $(function () {
+                    $("#cabezalReglas").load("cabezal.html");
+                });
+            </script>
+
+            <div role="main" class="ui-content">
+                <h2>Reglas vigentes :</h2>
+                <b>903.</b>&nbsp;<b>Commander</b>
+                <ul><li> <b>903.1.</b>&nbsp;En la variante Commander, cada mazo es liderado por una criatura legendaria designada como el comandante de ese mazo. La variante Commander fue creada y popularizada por fanáticos; existe un comité de reglas independiente que mantiene recursos adicionales en MTGCommander.net. La variante Commander usa todas las reglas normales para un juego de Magic, con los siguientes agregados.
+                    </li><li> <b>903.2.</b>&nbsp;Un juego de Commander puede ser un juego de dos jugadores o un juego de varios jugadores. La configuración por defecto para varios jugadores es la variante Todos contra todos con la alternativa de atacar a varios jugadores y sin la alternativa de rango de influencia limitado. Ver la regla 806, “Variante Todos contra todos”.
+                    </li><li> <b>903.3.</b>&nbsp;Cada mazo tiene una carta de criatura legendaria designada como su comandante. Esta designación no es una característica del objeto representado por la carta; en vez de eso, es un atributo de la misma carta. La carta mantiene esta designación incluso cuando cambia de zona.<br><i><b>Ejemplo</b>: Un comandante puesto boca abajo (por ejemplo por el efecto de Íxidron) sigue siendo un comandante. Un comandante que está copiando otra carta (por ejemplo por el efecto de Citomoldear) sigue siendo un comandante. Un permanente que está copiando a un comandante (como por ejemplo un Doble de cuerpo, copiando un comandante en el cementerio de un jugador) no es un comandante.</i>
+                        <ul><li> <b>903.3a</b>&nbsp;Algunas cartas de planeswalker tienen una habilidad que indica que la carta puede ser tu comandante. Esta habilidad modifica las reglas para construcción de mazo, y funciona antes de que comience el juego. Ver también la regla 112.6m.
+                            </li><li> <b>903.3b</b>&nbsp;Si el comandante de un jugador es una carta combinable y está combinada con el otro miembro de su par combinable, el permanente resultante combinado es el comandante de ese jugador.
+                            </li></ul>
+                    </li><li> <b>903.4.</b>&nbsp;La variante Commander usa la identidad de color para determinar qué cartas pueden ir en un mazo de un determinado comandante. La identidad de color de una carta es el color o colores de cualquier símbolo de maná en el coste de maná o recuadro de texto de esa carta, más cualquier color definido por sus habilidades que definen características (ver la regla 604.3) o indicador de color (ver la regla 204).<br><i><b>Ejemplo</b>: Bosh, gólem de hierro es una criatura artefacto legendaria con un coste de maná de {8} y la habilidad “{3}{R}, sacrificar un artefacto: Bosh, gólem de hierro hace daño a cualquier objetivo igual al coste de maná convertido del artefacto sacrificado”. La identidad de color de Bosh es rojo.</i>
+                        <ul><li> <b>903.4a</b>&nbsp;La identidad de color se determina antes de que comience el juego.
+                            </li><li> <b>903.4b</b>&nbsp;El texto recordatorio se ignora al determinar la identidad de color de una carta. Ver la regla 207.2.
+                            </li><li> <b>903.4c</b>&nbsp;La cara posterior de una carta de dos caras (ver la regla 711) se considera al determinar la identidad de color de una carta. Esta es una excepción a la regla 711.4a.<br><i><b>Ejemplo</b>: El Erudito civilizado es la cara frontal de una carta de dos caras con coste de maná {2}{U}. El Bruto homicida es la cara posterior de esa carta de dos caras y tiene un indicador de color rojo. La identidad de color de la carta es azul y rojo.</i>
+                            </li></ul>
+                    </li><li> <b>903.5.</b>&nbsp;Cada mazo de Commander está sujeto a las siguientes reglas de construcción de mazo.
+                        <ul><li> <b>903.5a</b>&nbsp;Cada mazo debe contener exactamente 100 cartas, incluyendo su comandante.
+                            </li><li> <b>903.5b</b>&nbsp;Exceptuando las tierras básicas, cada carta en el mazo de Commander debe tener un nombre distinto en inglés.
+                            </li><li> <b>903.5c</b>&nbsp;Una carta puede ser incluida en un mazo de Commander sólo si todos los colores de su identidad de color están también en la identidad de color del comandante del mazo.<br><i><b>Ejemplo</b>: Mosto, madre incursora es una criatura legendaria con coste de maná {4}{R/G}{R/G}. La identidad de color de Mosto es rojo y verde. Cada carta en el mazo de Commander de Mosto debe ser roja, verde, roja y verde o no tener color. Cada símbolo de maná en el coste de maná y recuadro de texto de una carta en este mazo debe ser rojo, verde, rojo y verde o no tener color.</i>
+                            </li><li> <b>903.5d</b>&nbsp;Una carta con un tipo de tierra básica puede ser incluido en un mazo de Commander sólo si cada color de maná que podría producir está incluido en la identidad de color del comandante.<br><i><b>Ejemplo</b>: La identidad de color de Mosto, madre incursora es rojo y verde. Un mazo de Commander de Mosto puede incluir cartas de tierra con el tipo de tierra básica montaña y/o bosque. No puede incluir ninguna carta de tierra con los tipos de tierra básica llanura, isla o pantano.</i>
+                            </li></ul>
+                    </li><li> <b>903.6.</b>&nbsp;Al comienzo del juego, cada jugador pone el comandante de su mazo boca arriba en la zona de mando. Luego cada jugador baraja las restantes 99 cartas de su mazo para que estén en orden aleatorio. Esas cartas se convierten en la biblioteca del jugador.
+                    </li><li> <b>903.7.</b>&nbsp;Una vez que se decide quién empezará, cada jugador pone su marcador de vidas en 40 y roba una mano de siete cartas.
+                    </li><li> <b>903.8.</b>&nbsp;Un jugador puede lanzar un comandante del cual sea propietario desde la zona de mando. Un comandante lanzado desde la zona de mando cuesta {2} adicionales por cada vez anterior que el jugador que lo está lanzando lo lanzó desde la zona de mando ese juego. Este coste adicional es conocido informalmente como el "impuesto de comandante".
+                    </li><li> <b>903.9.</b>&nbsp;Si un comandante fuera a ser exiliado desde cualquier lado o puesto en el cementerio, mano o biblioteca de su propietario desde cualquier lado, en vez de eso, ese jugador puede ponerlo en la zona de mando. Este efecto de reemplazo puede aplicarse más de una vez al mismo evento. Esta es una excepción a la regla 614.5.
+                        <ul><li> <b>903.9a</b>&nbsp;Si un comandante es un permanente combinado y su propietario elige ponerlo en la zona de mando de esta manera, ese permanente y la carta que lo representa que no es un comandante son puestas en la zona adecuada, y la carta que lo representa y es un comandante es puesta en la zona de mando.
+                            </li></ul>
+                    </li><li> <b>903.10.</b>&nbsp;La variante Commander incluye la siguiente especificación para ganar y perder el juego. También se aplican todas las reglas para terminar un juego. (Ver la regla 104.)
+                        <ul><li> <b>903.10a</b>&nbsp;Un jugador que recibió 21 o más puntos de daño de combate del mismo comandante en el transcurso del juego pierde el juego. (Esta es una acción basada en el estado. Ver la regla 704.)
+                            </li></ul>
+                    </li><li> <b>903.11.</b>&nbsp;Alternativa Brawl
+                        <ul><li> <b>903.11a</b>&nbsp;Brawl es una alternativa para un estilo diferente de jugar Commander. Los juegos de Brawl usan todas las reglas normales para la variante Commander, con las siguientes modificaciones.
+                            </li><li> <b>903.11b</b>&nbsp;Los mazos de Brawl se construyen normalmente usando cartas del formato Estándar.
+                            </li><li> <b>903.11c</b>&nbsp;Un jugador designa a cualquier planeswalker legendario o a cualquier criatura legendaria como su comandante.
+                            </li><li> <b>903.11d</b>&nbsp;El mazo de un jugador debe contener exactamente 60 cartas, incluyendo su comandante.
+                            </li><li> <b>903.11e</b>&nbsp;En un juego de Brawl de dos jugadores, el total de vidas inicial de cada jugador es 25. En un juego de Brawl de varios jugadores, el total de vidas inicial de cada jugador es 30.
+                            </li><li> <b>903.11f</b>&nbsp;En cualquier juego de Brawl, la primera vez que un jugador toma un mulligan, ese jugador roba una nueva mano con esa misma cantidad de cartas. Las siguientes manos decrecen en una carta normalmente.
+                            </li><li> <b>903.11g</b>&nbsp;Los juegos de Brawl no usan la acción basada en el estado descrita en la regla 704.5v, que causa que un jugador pierda el juego si recibió 21 o más puntos de daño de combate de un comandante.
+                            </li></ul>
+                    </li></ul>
+
+
+                <div id="pieReglas"></div>
+                <script>
+                    $(function () {
+                        $("#pieReglas").load("footer.html");
+                    });
+                </script>
+
+            </div><!-- /content -->
+        </div><!-- /page -->
+
+        <div id="cartasBan" data-role="page" >
+
+            <div id="cabezalCartasBaneadas"></div>
+            <script>
+                $(function () {
+                    $("#cabezalCartasBaneadas").load("cabezal.html");
+                });
+            </script>
+
+            <div role="main" class="ui-content"> 
+
+
+
+                <h2>Cartas baneadas de EDH :</h2>
+
+
+                <table width="100%">
+                    <tbody><tr><td valign="top">
+                                <ul>
+                                    <li><a target="edhcard" href="http://deckbox.org/mtg/Ancestral Recall">Ancestral Recall</a></li>
+                                    <li><a target="edhcard" href="http://deckbox.org/mtg/Balance">Balance</a></li>
+                                    <li><a target="edhcard" href="http://deckbox.org/mtg/Biorhythm">Biorhythm</a></li>
+                                    <li><a target="edhcard" href="http://deckbox.org/mtg/Black Lotus">Black Lotus</a></li>
+                                    <li><a target="edhcard" href="http://deckbox.org/mtg/Braids, Cabal Minion">Braids, Cabal Minion</a></li>
+                                    <li><a target="edhcard" href="http://deckbox.org/mtg/Coalition Victory">Coalition Victory</a></li>
+                                    <li><a target="edhcard" href="http://deckbox.org/mtg/Channel">Channel</a></li>
+                                    <li><a target="edhcard" href="http://deckbox.org/mtg/Emrakul, the Aeons Torn">Emrakul, the Aeons Torn</a></li>
+                                    <li><a target="edhcard" href="http://deckbox.org/mtg/Erayo, Soratami Ascendant">Erayo, Soratami Ascendant</a></li>
+                                    <li><a target="edhcard" href="http://deckbox.org/mtg/Fastbond">Fastbond</a></li>
+                                    <li><a target="edhcard" href="http://deckbox.org/mtg/Gifts Ungiven">Gifts Ungiven</a></li>
+                                    <li><a target="edhcard" href="http://deckbox.org/mtg/Griselbrand">Griselbrand</a></li>
+                                    <li><a target="edhcard" href="http://deckbox.org/mtg/Karakas">Karakas</a></li>
+                                    <li><a target="edhcard" href="http://deckbox.org/mtg/Leovold, Emissary of Trest">Leovold, Emissary of Trest</a></li>
+                                    <li><a target="edhcard" href="http://deckbox.org/mtg/Library of Alexandria">Library of Alexandria</a></li>
+                                    <li><a target="edhcard" href="http://deckbox.org/mtg/Limited+Resources">Limited Resources</a></li>
+                                    <li><a target="edhcard" href="http://deckbox.org/mtg/Mox Ruby">Mox Sapphire, Ruby, Pearl, Emerald and Jet</a></li>
+                                    <li><a target="edhcard" href="http://deckbox.org/mtg/Painter's Servant">Painter's Servant</a></li>
+                                </ul>
+                            </td><td valign="top">
+                                <ul>
+                                    <li><a target="edhcard" href="http://deckbox.org/mtg/Panoptic Mirror">Panoptic Mirror</a></li>
+                                    <li><a target="edhcard" href="http://deckbox.org/mtg/Primeval+Titan">Primeval Titan</a></li>
+                                    <li><a target="edhcard" href="http://deckbox.org/mtg/Prophet of Kruphix">Prophet of Kruphix</a></li>
+                                    <li><strike><a target="edhcard" href="http://deckbox.org/mtg/Protean Hulk">Protean Hulk</a></strike></li> **UnBanned**
+                                    <li><a target="edhcard" href="http://deckbox.org/mtg/Recurring Nightmare">Recurring Nightmare</a></li>
+                                    <li><a target="edhcard" href="http://deckbox.org/mtg/Rofellos, Llanowar Emissary">Rofellos, Llanowar Emissary</a></li>
+                                    <li><a target="edhcard" href="http://deckbox.org/mtg/Sway of the Stars">Sway of the Stars</a></li>
+                                    <li><a target="edhcard" href="http://deckbox.org/mtg/Sundering+Titan">Sundering Titan</a></li>
+                                    <li><a target="edhcard" href="http://deckbox.org/mtg/Sylvan+Primordial">Sylvan Primordial</a></li>
+                                    <li><a target="edhcard" href="http://deckbox.org/mtg/Time Vault">Time Vault</a></li>
+                                    <li><a target="edhcard" href="http://deckbox.org/mtg/Time Walk">Time Walk</a></li>
+                                    <li><a target="edhcard" href="http://deckbox.org/mtg/Tinker">Tinker</a></li>
+                                    <li><a target="edhcard" href="http://deckbox.org/mtg/Tolarian Academy">Tolarian Academy</a></li>
+                                    <li><a target="edhcard" href="http://deckbox.org/mtg/Trade Secrets">Trade Secrets</a></li>
+                                    <li><a target="edhcard" href="http://deckbox.org/mtg/Upheaval">Upheaval</a></li>
+                                    <li><a target="edhcard" href="http://deckbox.org/mtg/Worldfire">Worldfire</a></li>
+                                    <li><a target="edhcard" href="http://deckbox.org/mtg/Yawgmoth's Bargain">Yawgmoth's Bargain</a></li>
+                                </ul>
+                            </td></tr>
+                    </tbody></table>
+            </div><!-- /content -->
+
+            <div id="pieCartasBan"></div>
+            <script>
+                $(function () {
+                    $("#pieCartasBan").load("footer.html");
+                });
+            </script>
+        </div><!-- /page -->
+
+        <div id="dados" data-role="page" >
+
+
+            <div id="cabezalDados"></div>
+            <script>
+                $(function () {
+
+                    $("#cabezalDados").load("cabezal.html");
+                });
+            </script>
+
+
+
+            <div role="main" class="ui-content">
+
+                <div id="mesaDados" class="center-screen">
+                    <img src="img/dados/animacion.gif" alt=""/>
+
+                </div>
+
+            </div><!-- /content -->
+
+
+            <div id="pieDados"></div>
+            <script>
+                $(function () {
+
+                    $("#pieDados").load("controlesDados.html");
+                });
+            </script>
+        </div><!-- /page -->
+
+
+        <div id="contadorVidas" data-role="page" >
+            <script>
+
+            </script>
+
+            <div id="cabezalcontadorVidas"></div>
+            <script>
+                $(function () {
+                    $("#cabezalcontadorVidas").load("cabezal.html");
+                });
+            </script>
+
+            <div role="main" class="ui-content">
+
+                <div id="J1"></div>
+                <script>
+                    $(function () {
+
+                        $("#J1").load("contadorVidas.html");
+                    });
+                </script>
+
+
+            </div><!-- /content -->
+
+
+            <div id="piecontadorVidas"></div>
+            <script>
+                $(function () {
+
+                    $("#piecontadorVidas").load("footer.html");
+                });
+            </script>
+        </div><!-- /page -->
+
+
+
+        <div data-role="panel" data-position-fixed="true" data-display="push" data-theme="b" id="nav-panel" data-position="left">
+            <ul data-role="listview">
+                <li data-icon="delete"><a href="" data-rel="close">Cerrar menu</a></li>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#PaginaEventos">Eventos</a></li>
+                <li><a href="#cartasBan">Cartas baneadas</a></li>
+                <li><a href="#PaginaMTG">MTG</a></li>
+                <li><a href="#PaginaMiniaturas">Miniaturas</a></li>
+                <li><a href="#PaginaTienda">Tienda</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+                <li><a href="#ruling">Reglas EDH</a></li>
+                <li><a href="#contadorVidas">Contador de vidas</a></li>
+                <li><a href="#dados">Dados</a></li>      
+            </ul>
+        </div><!-- /panel -->
+
+
+
+        <div id="PaginaEventos" data-role="page" >
+            <div id="cabezalPaginaEventos"></div>
+            <script>
+                $(function () {
+                    $("#cabezalPaginaEventos").load("cabezal.html");
+                });
+            </script>
+            <div role="main" class="ui-content">
+                <ul id="listaNoticiaEventos" data-role="listview" data-inset="true" >
+                </ul> 
+            </div><!-- /content -->
+
+            <div id="piePaginaEventos"></div>
+            <script>
+                $(function () {
+                    $("#piePaginaEventos").load("footer.html");
+                });
+            </script>
+        </div><!-- /page -->
+
+
+        <div id="PaginaMiniaturas" data-role="page" >
+            <div id="cabezalPaginaMiniaturas"></div>
+            <script>
+                $(function () {
+                    $("#cabezalPaginaMiniaturas").load("cabezal.html");
+                });
+            </script>
+            <div role="main" class="ui-content">
+                <ul id="listaNoticiaMiniaturas" data-role="listview" data-inset="true" >  
+                </ul> 
+            </div><!-- /content -->
+
+            <div id="piePaginaMiniaturas"></div>
+            <script>
+                $(function () {
+                    $("#piePaginaMiniaturas").load("footer.html");
+                });
+            </script>
+        </div><!-- /page -->
+
+        <div id="PaginaMTG" data-role="page" >
+            <div id="cabezalPaginaMTG"></div>
+            <script>
+                $(function () {
+                    $("#cabezalPaginaMTG").load("cabezal.html");
+                });
+            </script>
+            <div role="main" class="ui-content">
+                <ul id="listaNoticiaMTG" data-role="listview" data-inset="true" >  
+                </ul> 
+            </div><!-- /content -->
+
+            <div id="piePaginaMTG"></div>
+            <script>
+                $(function () {
+                    $("#piePaginaMTG").load("footer.html");
+                });
+            </script>
+        </div><!-- /page -->
+        
+          <div id="PaginaTienda" data-role="page" >
+            <div id="cabezalPaginaTienda"></div>
+            <script>
+                $(function () {
+                    $("#cabezalPaginaTienda").load("cabezal.html");
+                });
+            </script>
+            <div role="main" class="ui-content">
+                <ul id="listaNoticiaTienda" data-role="listview" data-inset="true" >  
+                </ul> 
+            </div><!-- /content -->
+
+            <div id="piePaginaTienda"></div>
+            <script>
+                $(function () {
+                    $("#piePaginaTienda").load("footer.html");
+                });
+            </script>
+        </div><!-- /page -->
+
+
+        <div id="PaginaDetalleNoticia" data-role="page" >
+
+            <div id="cabezalPaginaDetalleNoticia"></div>
+            <script>
+                $(function () {
+                    $("#cabezalPaginaDetalleNoticia").load("cabezal.html");
+                });
+            </script>
+
+            <div role="main" class="ui-content">
+                <div id="contenidoDetalle">
+
+                </div>
+            </div><!-- /content -->
+
+            <div id="piePaginaDetalleNoticia"></div>
+            <script>
+                $(function () {
+                    $("#piePaginaDetalleNoticia").load("footer.html");
+                });
+            </script>
+        </div><!-- /page -->
+    </body>
+</html>
