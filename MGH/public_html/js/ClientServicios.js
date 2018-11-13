@@ -16,7 +16,14 @@ function inicioApp()
     cargarMiniaturas();
     cargarTienda();
     cargarMTG();
+    cargarHeadersYFooters();
 
+}
+
+function cargarHeadersYFooters() {
+    $('.miHeader').load('cabezal.html');
+    $('.miFooter').load('footer.html');
+    $("#pieDados").load('controlesDados.html');
 }
 
 // Dada una categoria y una cantidad esta funcion tiene como responsabilidad poblar

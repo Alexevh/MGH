@@ -3,6 +3,13 @@
  * 
  */
 
+
+function limpiarPaginaDados() {
+    $("#mesaDados").empty();
+    $("#mesaDados").append('<img src="img/dados/animacion.gif" alt=""/>');
+}
+
+
 /* Funcion que obtiene un numero aleatorio entre el 1 y el 6 y dibuja
  * el resultado en la mesa de dados*/
 function tirarD6()
