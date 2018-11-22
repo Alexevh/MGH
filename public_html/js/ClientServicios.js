@@ -17,6 +17,15 @@ function inicioApp()
     cargarTienda();
     cargarMTG();
     cargarHeadersYFooters();
+    refrescarNoticias();
+}
+
+var timer;
+function refrescarNoticias(){
+    timer = setInterval(function(){
+        cargarEventos();
+    }, 300000);
+    //300.000 equivalen a 5 min
 }
 
 function cargarHeadersYFooters() {
