@@ -24,7 +24,7 @@ var timer;
 function refrescarNoticias(){
     timer = setInterval(function(){
         cargarEventos();
-    }, 300000);
+    }, 100000);
     //300.000 equivalen a 5 min
 }
 
@@ -49,7 +49,7 @@ function obtenerNoticiasPorCategoria(categoria, cantidad)
         success: function (res) {
             
            
-           $("#listaNoticia" + categoria).empty();
+           
             //alert('funciona');
             console.log(res);
             resultado = res;
@@ -59,10 +59,11 @@ function obtenerNoticiasPorCategoria(categoria, cantidad)
                 pieza = obtenerCabezalNoticia(categoria, resultado, i);
 
                 $("#listaNoticia" + categoria).append(pieza);
+                
 
             }
             $("#listaNoticia" + categoria).refresh();
-
+            
 
         }
     });
