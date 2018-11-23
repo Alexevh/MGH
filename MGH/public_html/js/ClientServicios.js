@@ -17,7 +17,15 @@ function inicioApp()
     cargarTienda();
     cargarMTG();
     cargarHeadersYFooters();
+    refrescarNoticias();
+}
 
+var timer;
+function refrescarNoticias(){
+    timer = setInterval(function(){
+        cargarEventos();
+    }, 300000);
+    //300.000 equivalen a 5 min
 }
 
 function cargarHeadersYFooters() {
@@ -33,21 +41,29 @@ function obtenerNoticiasPorCategoria(categoria, cantidad)
 {
 
     $.ajax({
-        url: "http://mgh-preprod.xly.es/jsonapi/node/" + categoria + "?page[limit]=" + cantidad + "&sort=-nid",
+        url: "http://www.montevideo-gh.com/jsonapi/node/" + categoria + "?page[limit]=" + cantidad + "&sort=-nid",
         type: "GET",
         dataType: "JSON",
         data: {},
         async: true,
         success: function (res) {
+            
+           
+           $("#listaNoticia" + categoria).empty();
+            //alert('funciona');
             console.log(res);
             resultado = res;
+
             for (var i = 0; i < resultado.data.length; i++)
             {
                 pieza = obtenerCabezalNoticia(categoria, resultado, i);
 
                 $("#listaNoticia" + categoria).append(pieza);
+
             }
             $("#listaNoticia" + categoria).refresh();
+
+
         }
     });
 }
@@ -56,7 +72,9 @@ function obtenerNoticiasPorCategoria(categoria, cantidad)
 //Esta funcion llama a obtenerNoticias 
 function cargarEventos()
 {
+
     obtenerNoticiasPorCategoria("Eventos", 5);
+
 }
 
 //Esta funcion llama a obtenerNoticias 
@@ -86,14 +104,14 @@ function cargarMTG()
 function obtenerCabezalNoticia(categoria, resultado, i)
 {
     titulo = resultado.data[i].attributes.title;
-  
-  // Esta parte carga la primera imagen de la noticia que vamos a usar como
-  // representante en la cabecera, si no tiene imagen entonces usamos la por defecto//
+
+    // Esta parte carga la primera imagen de la noticia que vamos a usar como
+    // representante en la cabecera, si no tiene imagen entonces usamos la por defecto//
     var str = resultado.data[i].attributes.body.value;
     var ele = document.createElement("div");
     ele.innerHTML = str;
     var imagen = ele.querySelector("img");
-    
+
     if (imagen === null)
     {
         ele.innerHTML = "<img src='img/logo.png'></img>";
@@ -119,15 +137,19 @@ function cargarDetalle(lnk)
     var categoria = lnk.attr("data-cat");
 
     $.ajax({
-        url: "http://mgh-preprod.xly.es/jsonapi/node/" + categoria + "/" + uuid,
+        url: "http://www.montevideo-gh.com/jsonapi/node/" + categoria + "/" + uuid,
         type: "GET",
         dataType: "JSON",
         data: {},
         async: false,
         success: function (res) {
+
+            //alert('funciona');
             console.log(res);
             resultado = res;
+
             $("#contenidoDetalle").html("<p> " + resultado.data.attributes.body.value + "</p>");
+
         }
     });
 
@@ -139,16 +161,21 @@ function cargarDetalle(lnk)
 function obtenerNoticiaPorUUID(categoria, uuid)
 {
     $.ajax({
-        url: "http://mgh-preprod.xly.es/jsonapi/node/" + categoria + "/" + uuid,
+        url: "http://www.montevideo-gh.com/jsonapi/node/" + categoria + "/" + uuid,
         type: "GET",
         dataType: "JSON",
         data: {},
         async: true,
         success: function (res) {
+
+            //alert('funciona');
             console.log(res);
             resultado = res;
             return resultado;
+
         }
+
+
     });
 }
 
@@ -156,22 +183,35 @@ function obtenerNoticiaPorUUID(categoria, uuid)
 function obtenerNoticiaPortada() {
 
     $.ajax({
-        url: "http://mgh-preprod.xly.es/jsonapi/node/Tienda?page[limit]=1&sort=-nid",
+        url: "http://www.montevideo-gh.com/jsonapi/node/Tienda?page[limit]=1&sort=-nid",
         type: "GET",
         dataType: "JSON",
         data: {},
         async: true,
+        //data: "q=Montevideo&lang=es",
+        //data: JSON.stringify({email: email, pwd: pwd}),
         success: function (res) {
+
+            //alert('funciona');
             console.log(res);
             resultado = res;
+
+
             for (var i = 0; i < resultado.data.length; i++)
             {
                 pieza = formatearNoticiaCompleta(resultado, i);
                 // $("#listaResultados").append("<li> "+resultado.data[i].attributes.title+"</li>");
                 $("#portada").append(pieza);
+
             }
             $("#portada").listview('refresh');
+
+
+
+
         }
+
+
     });
 }
 
@@ -182,6 +222,8 @@ function formatearNoticia(resultado, posicion) {
     titulo = resultado.data[posicion].attributes.title
     resumen = resultado.data[posicion].attributes.body.summary
     cuerpo = resultado.data[posicion].attributes.body.value
+
+
     pieza = "<li>" + titulo + "<br>" + cuerpo + "</li>"
     return pieza;
 
@@ -192,6 +234,9 @@ function formatearNoticiaCompleta(resultado, posicion) {
     titulo = resultado.data[posicion].attributes.title
     resumen = resultado.data[posicion].attributes.body.summary
     cuerpo = resultado.data[posicion].attributes.body.value
+
+
+
     pieza = "<div>" + titulo + "<br>" + cuerpo + "</div>"
     return pieza;
 
@@ -202,17 +247,22 @@ function formatearNoticiaCompleta(resultado, posicion) {
 function obtenerLocalizacion()
 {
     navigator.geolocation.getCurrentPosition(onSuccess, onErrorNav);
+
 }
 
 function onSuccess(position) {
+    // alert(position.coords.latitude +" : " + position.coords.longitude);
     var lat = position.coords.latitude;
     var longitud = position.coords.longitude;
+
     $("#mapGoogle").attr("src", "https://www.google.com/maps/embed/v1/directions?key=AIzaSyDmrGuARK5rJ6ZJOt7j6cjsSH1f7-dyL_Y&origin=" + lat + "," + longitud + "&destination=Montevideo+Gaming+House,+Colonia+1761A,+11200+Montevideo");
+
 }
 
 function onErrorNav(error) {
     alert('code: ' + error.code + '\n' +
             'message: ' + error.message + '\n');
+
 }
 
 
@@ -223,7 +273,7 @@ function cargarNoticias()
 {
 
     $.ajax({
-        url: "http://mgh-preprod.xly.es/jsonapi/node/MTG?include=field_image",
+        url: "http://www.montevideo-gh.com/jsonapi/node/MTG?include=field_image",
         type: "GET",
         dataType: "JSON",
         data: {},
@@ -231,23 +281,39 @@ function cargarNoticias()
         //data: "q=Montevideo&lang=es",
         //data: JSON.stringify({email: email, pwd: pwd}),
         success: function (res) {
+
+            //alert('funciona');
             console.log(res);
             resultado = res;
+
+
             for (var i = 0; i < resultado.data.length; i++)
             {
                 pieza = formatearNoticia(resultado, i);
+                // $("#listaResultados").append("<li> "+resultado.data[i].attributes.title+"</li>");
                 $("#listaResultados").append(pieza);
+
             }
             $("#listaResultados").listview('refresh');
+
+
+
+
         }
+
+
     });
+
+
+
+
 }
 
 function cargarNoticiasEventos()
 {
 
     $.ajax({
-        url: "http://mgh-preprod.xly.es/jsonapi/node/Eventos?page[limit]=5&sort=-nid",
+        url: "http://www.montevideo-gh.com/jsonapi/node/Eventos?page[limit]=5&sort=-nid",
         type: "GET",
         dataType: "JSON",
         data: {},
@@ -255,15 +321,26 @@ function cargarNoticiasEventos()
         //data: "q=Montevideo&lang=es",
         //data: JSON.stringify({email: email, pwd: pwd}),
         success: function (res) {
+
+            //alert('funciona');
             console.log(res);
             resultado = res;
+
+
             for (var i = 0; i < resultado.data.length; i++)
             {
                 pieza = obtenerCabezalNoticia("Eventos", resultado, i);
+
                 $("#listaNoticiaEventos").append(pieza);
+
             }
             $("#listaNoticiaEventos").refresh();
+
+
+
         }
+
+
     });
 
 
