@@ -50,7 +50,7 @@ function obtenerNoticiasPorCategoria(categoria, cantidad)
             
            
            
-            //alert('funciona');
+            $("#listaNoticia" + categoria).empty();
             console.log(res);
             resultado = res;
 
@@ -62,7 +62,7 @@ function obtenerNoticiasPorCategoria(categoria, cantidad)
                 
 
             }
-            $("#listaNoticia" + categoria).refresh();
+            $("#listaNoticia" + categoria).listview( "refresh" );;
             
 
         }
