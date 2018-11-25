@@ -75,8 +75,12 @@ function cargarEventos()
 {
 
     obtenerNoticiasPorCategoria("Eventos", 5);
-
+  
 }
+
+
+
+
 
 //Esta funcion llama a obtenerNoticias 
 function cargarMiniaturas()
