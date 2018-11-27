@@ -8,6 +8,8 @@ var listaNoticias = new Array();
 $(document).ready(inicioApp);
 
 document.addEventListener("deviceready", onDeviceReady, false);
+
+
 function onDeviceReady() {
     console.log(navigator.notification);
 }
@@ -28,7 +30,7 @@ var timer;
 function refrescarNoticias(){
     timer = setInterval(function(){
         cargarEventos();
-        notificar()
+        notificar();
     }, 100000);
     //300.000 equivalen a 5 min
 }
@@ -40,13 +42,7 @@ function cerrarNotificacion(){
 
 function notificar(){
  
-    try {
-        if (navigator !== null) {
-            navigator.notification.beep(2);
-        }
-    } catch (e) {
-        alert("Beep failed: " + e.message);
-    }
+   navigator.notification.beep(10);
   
 }
 
