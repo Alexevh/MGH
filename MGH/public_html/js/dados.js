@@ -185,7 +185,7 @@ function tirarMoneda(){
 
 function obtenerImagenD6(numero){
    
-    pieza = "<img class='videoDados' src=img/dados/d6/"+numero+".jpg>";
+    pieza = "<img  src=img/dados/d6/"+numero+".jpg>";
     return pieza;
 }
 
@@ -197,18 +197,18 @@ function obtenerVideoD6(numero)
 
 function obtenerImagenD12(numero){
    
-    pieza = "<img class='videoDados' src=img/dados/d12/"+numero+".jpg>";
+    pieza = "<img src=img/dados/d12/"+numero+".jpg>";
     return pieza;
 }
 
 function obtenerImagenD20(numero){
    
-    pieza = "<img class='videoDados' src=img/dados/d20/"+numero+".jpg>";
+    pieza = "<img src=img/dados/d20/"+numero+".jpg>";
     return pieza;
 }
 
 function obtenerImagenMoneda(lado){
    
-    pieza = "<img class='videoDados' src=img/moneda/"+lado+".jpg>";
+    pieza = "<img  src=img/moneda/"+lado+".jpg>";
     return pieza;
 }
