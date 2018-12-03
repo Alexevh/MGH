@@ -197,7 +197,7 @@ function obtenerVideoD6(numero)
 
 function obtenerImagenD12(numero){
    
-    pieza = "<img src=img/dados/d12/"+numero+".jpg>";
+    pieza = "<img  src=img/dados/d12/"+numero+".jpg>";
     return pieza;
 }
 
