@@ -1,11 +1,25 @@
-
-.contador{
-    background-color: red;
-    max-width: 100%;
-    height:500px;
-    position: relative;
+.controlIzq {
+    width: 10%;
+    height: 100px;
+    float: left;
+    text-align: center;
+    display: inline-block;
+}
+        
+.controlDer {
+    width: 10%;
+    height: 100px;
+    float: right;
+    text-align: center;
+    display: inline-block;
 }
 
+.contador{
+    float: none;
+    position: relative;
+    display: inline-block;
+}
+/*
 .izquierda {
     background-color: #bbb;
     width: 100%;
@@ -51,3 +65,4 @@
     width: 10%;
     height: 30%;
 }
+*/
