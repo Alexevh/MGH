@@ -9,10 +9,14 @@ veneno2 = 0;
 veneno3 = 0;
 veneno4 = 0;
 
-function cantJugadores() {
-    jugadores = $("#txtJugadores").val();
+
+
+
+
+function cantJugadores(numero) {
+    
     $("#tableroJugadores").empty();
-    agregarTableros(jugadores);
+    agregarTableros(numero);
 }
 
 
@@ -97,7 +101,7 @@ function aumentarVeneno(numeroJugador)
         case 4:
             $("#Veneno4").empty();
             veneno4++;
-            $("#Veneno4").html(veneno1);
+            $("#Veneno4").html(veneno4);
             break;
     }
 }
@@ -136,6 +140,6 @@ function agregarTableros(cantidadJugadores)
 
 function obtenerDivJugador(numero)
 {
-   nuevaDiv = "<div style='height: 50%'><div style='width: 45%; display:inline-block;'><a href='#' class='ui-btn' onclick='restar("+numero+")'>-</a>  <a href='#' class='ui-btn' onclick='sumar("+numero+")'>+</a> </div><div style='width: 45%; display:inline-block;position: relative;text-align: center;top: 50%;transform: translateY(-50%);' ><label id='Jugador"+numero+"'>+ jugador"+numero+":40 +</label><a href='' onclick='aumentarVeneno("+numero+")'><div id='Veneno"+numero+"'  >0</div></a></div></div></div>";
+   nuevaDiv = "<div class='divInicialBloqueJugador'><div  class='divSegundoBloqueJugador'><a href='#' class='ui-btn' onclick='restar("+numero+")'>-</a>  <a href='#' class='ui-btn' onclick='sumar("+numero+")'>+</a> </div><div class='divTerceroBloqueJugador' ><label id='Jugador"+numero+"'>+ jugador"+numero+":40 +</label><a href='' onclick='aumentarVeneno("+numero+")'><div class='divVeneno' id='Veneno"+numero+"'  >0</div></a></div></div></div>";
    return nuevaDiv;
 }

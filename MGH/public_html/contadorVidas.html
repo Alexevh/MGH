@@ -1,7 +1,13 @@
-<!--<div class="contador" style="display: block"> -->
-<label for="txtJugadores">Text input:</label>
-<input type="text" name="text-1" id="txtJugadores" value="">
-<a href="#" class="ui-btn" onclick="cantJugadores()">Aceptar</a>
+<h5>Seleccione la cantidad de jugadores</h5>
+<div data-role="navbar" data-grid="c">
+    <ul>
+        <li><a href="#" class="ui-btn-active" onclick="cantJugadores(1)">1</a></li>
+        <li><a href="#" onclick="cantJugadores(2)">2</a></li>
+        <li><a href="#" onclick="cantJugadores(3)">3</a></li>
+        <li><a href="#" onclick="cantJugadores(4)">4</a></li>
+       
+    </ul>
+</div><!-- /navbar -->
 
 <div id="tableroJugadores">
 

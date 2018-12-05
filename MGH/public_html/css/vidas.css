@@ -1,3 +1,8 @@
+.cuerpo {
+    background-color: #aacdf7;
+   background-image: linear-gradient(#aacdf7, #f7fb6d);
+}
+
 .controlIzq {
     width: 10%;
     height: 100px;
@@ -19,6 +24,35 @@
     position: relative;
     display: inline-block;
 }
+
+
+.divInicialBloqueJugador{
+    height: 50%;
+    
+}
+
+.divSegundoBloqueJugador{
+   width: 45%;
+   display:inline-block;
+   
+}
+
+.divTerceroBloqueJugador{
+   width: 45%; 
+   display:inline-block;
+   position: relative;
+   text-align: center;
+   top: 50%;
+   transform: translateY(-50%);
+   
+}
+
+.divVeneno
+{
+   
+}
+
+
 /*
 .izquierda {
     background-color: #bbb;
