@@ -116,8 +116,8 @@ function agregarTableros(cantidadJugadores)
         
     } else if (parseInt(cantidadJugadores) === 2)
     {
-        DivP1 = obtenerDivJugador(1);
-        DivP2 = obtenerDivJugador(2);
+        DivP1 = obtenerDivJugadorv2(1);
+        DivP2 = obtenerDivJugadorv2(2);
         nuevaDiv = DivP1+DivP2;
     }else if (parseInt(cantidadJugadores) === 3)
     {
@@ -141,5 +141,15 @@ function agregarTableros(cantidadJugadores)
 function obtenerDivJugador(numero)
 {
    nuevaDiv = "<div class='divInicialBloqueJugador'><div  class='divSegundoBloqueJugador'><a href='#' class='ui-btn' onclick='restar("+numero+")'>-</a>  <a href='#' class='ui-btn' onclick='sumar("+numero+")'>+</a> </div><div class='divTerceroBloqueJugador' ><label id='Jugador"+numero+"'>+ jugador"+numero+":40 +</label><a href='' onclick='aumentarVeneno("+numero+")'><div class='divVeneno' id='Veneno"+numero+"'  >0</div></a></div></div></div>";
+   return nuevaDiv;
+}
+
+
+function obtenerDivJugadorv2(numero)
+{
+   divRestar = "<div class='izquierda' onclick='restar("+numero+")'> -</div>"
+   divSumar = "<div class='derecha' onclick='sumar("+numero+")'> +</div>"
+   divPrincipal = "<div class='principal'><label id='Jugador"+numero+"'>+ jugador"+numero+":40 +</label> </div>"
+   nuevaDiv ="<div class='divInicialBloqueJugador'>"+divRestar+divPrincipal+divSumar+"</div>"
    return nuevaDiv;
 }
