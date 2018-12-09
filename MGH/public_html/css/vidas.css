@@ -3,22 +3,6 @@
    background-image: linear-gradient(#aacdf7, #f7fb6d);
 }
 
-.controlIzq {
-    width: 10%;
-    height: 100px;
-    float: left;
-    text-align: center;
-    display: inline-block;
-}
-        
-.controlDer {
-    width: 10%;
-    height: 100px;
-    float: right;
-    text-align: center;
-    display: inline-block;
-}
-
 .contador{
     float: none;
     position: relative;
@@ -58,7 +42,8 @@
     margin-top: 2px;
     background-color: #f7fb6d;
     width: 10%;
-    height: 200px;
+    height: 170px;
+    line-height: 170px; 
     float: left;
     text-align: center;
    
@@ -68,7 +53,8 @@
     margin-top: 2px;
     background-color: whitesmoke;
     width: 80%;
-    height: 200px;
+    line-height: 170px; 
+    height: 170px;
     float: left;
     text-align: center;
     font-size: 8vw;
@@ -80,10 +66,45 @@
     margin-top: 2px;
     background-color: #bbb;
     width: 10%;
-    height: 200px;
+    line-height: 170px; 
+    height: 170px;
     float: left;
     text-align: center;
   
+}
+
+.izquierdaMulti {
+    margin-top: 2px;
+    background-color: #f7fb6d;
+    width: 10%;
+    height: 250px;
+    line-height: 250px; 
+    float: left;
+    text-align: center;
+   
+}
+
+.principalMulti {
+    margin-top: 2px;
+    background-color: whitesmoke;
+    width: 30%;
+    line-height: 250px; 
+    height: 250px;
+    float: left;
+    text-align: center;
+    font-size: 8vw;
+    
+}
+
+
+.derechaMulti {
+    margin-top: 2px;
+    background-color: #bbb;
+    width: 10%;
+    line-height: 250px; 
+    height: 250px;
+    float: left;
+    text-align: center;
 }
 
 .contenedor {
@@ -92,6 +113,21 @@
 
 /*
 
+.controlIzq {
+    width: 10%;
+    height: 100px;
+    float: left;
+    text-align: center;
+    display: inline-block;
+}
+        
+.controlDer {
+    width: 10%;
+    height: 100px;
+    float: right;
+    text-align: center;
+    display: inline-block;
+}
 #Veneno1{
 
     position: absolute;
