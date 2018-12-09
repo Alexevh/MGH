@@ -1,9 +1,11 @@
 /* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ *En este JS vamos a trabajar con el consumo de noticias
  */
 var listaNoticias = new Array();
+
+/*Vamos a almacenar el timestamp del ultimo evento*/
+var ultimoeventoTS =0;
+
 
 $(document).ready(inicioApp);
 
@@ -16,6 +18,7 @@ function onDeviceReady() {
 
 function inicioApp()
 {
+    //ocultarAlertas();
     obtenerNoticiaPortada();
     cargarEventos();
     cargarMiniaturas();
@@ -23,14 +26,20 @@ function inicioApp()
     cargarMTG();
     cargarHeadersYFooters();
     refrescarNoticias();
+    
    
+}
+
+function ocultarAlertas()
+{
+    $(".alert").alert('close')
 }
 
 var timer;
 function refrescarNoticias(){
     timer = setInterval(function(){
         cargarEventos();
-        notificar();
+        //notificar();
     }, 100000);
     //300.000 equivalen a 5 min
 }
@@ -66,11 +75,17 @@ function obtenerNoticiasPorCategoria(categoria, cantidad)
         async: true,
         success: function (res) {
             
-           
+          
            
             $("#listaNoticia" + categoria).empty();
             console.log(res);
             resultado = res;
+            
+            /* Si es un evento me interesa guardar el ID para controlarlo*/
+             if (categoria==="Eventos")
+           {
+               ultimoeventoTS = obtenerTSNoticia(resultado, 0)
+           }
 
             for (var i = 0; i < resultado.data.length; i++)
             {
@@ -91,9 +106,26 @@ function obtenerNoticiasPorCategoria(categoria, cantidad)
 //Esta funcion llama a obtenerNoticias 
 function cargarEventos()
 {
-
+   
+    idactual = ultimoeventoTS;    
     obtenerNoticiasPorCategoria("Eventos", 5);
+    /* Cuando llegamos a este IF la variable global de ultimoevento ya se debio
+     * haber actualizado por lo que*/
+    if (idactual !== ultimoeventoTS && idactual!==0)
+    {
+        notificarActualizacion("Eventos");
+    }
+    
+
   
+}
+
+function notificarActualizacion(categoria)
+{ 
+    
+    $(".alert").show();
+    $('.alert').alert();
+    
 }
 
 
@@ -152,6 +184,12 @@ function obtenerCabezalNoticia(categoria, resultado, i)
     return pieza;
 }
 
+/*dado un resultado y una posicion devuelvo el id*/
+function obtenerTSNoticia(resultado, i)
+{
+    id = resultado.data[i].attributes.changed;
+    return id;
+}
 
 //Funcion para cargar el detalle de la noticia seleccionada
 function cargarDetalle(lnk)

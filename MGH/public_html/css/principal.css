@@ -1,0 +1,20 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Dec 6, 2018, 9:03:52 AM
+    Author     : alex
+*/
+
+/* El cabezal de la pagina siempre esta fijo, para poder poner algo encima de esa
+propiedad es que declaramos este CSS*/
+#message {
+     position:fixed; 
+    top: 0px; 
+    left: 0px; 
+    width: 100%;
+    z-index:9999; 
+    border-radius:0px
+}
