@@ -9,6 +9,10 @@ veneno2 = 0;
 veneno3 = 0;
 veneno4 = 0;
 
+
+
+
+
 function cantJugadores(numero) {
     
     $("#tableroJugadores").empty();
@@ -23,25 +27,25 @@ function sumar(numeroJugador)
         case 1:
             $("#Jugador1").empty();
             jugador1++;
-            $("#Jugador1").html("Jugador"+numeroJugador+" : "+jugador1);
+            $("#Jugador1").html("J"+numeroJugador+" : "+jugador1);
             $("#Veneno1").html(veneno1);
             break;
         case 2:
             $("#Jugador2").empty();
             jugador2++;
-            $("#Jugador2").html("Jugador"+numeroJugador+" : "+jugador2);
+            $("#Jugador2").html("J"+numeroJugador+" : "+jugador2);
             $("#Veneno2").html(veneno2);
             break;
         case 3:
             $("#Jugador3").empty();
             jugador3++;
-            $("#Jugador3").html("Jugador"+numeroJugador+" : "+jugador3);
+            $("#Jugador3").html("J"+numeroJugador+" : "+jugador3);
             $("#Veneno3").html(veneno3);
             break;
         case 4:
             $("#Jugador4").empty();
             jugador4++;
-            $("#Jugador4").html("Jugador"+numeroJugador+" : "+jugador4);
+            $("#Jugador4").html("J"+numeroJugador+" : "+jugador4);
             $("#Veneno4").html(veneno4);
             break;
     }
@@ -53,22 +57,22 @@ function restar(numeroJugador)
         case 1:
             $("#Jugador1").empty();
             jugador1--;
-            $("#Jugador1").html("Jugador"+numeroJugador+" : "+jugador1);
+            $("#Jugador1").html("J"+numeroJugador+" : "+jugador1);
             break;
         case 2:
             $("#Jugador2").empty();
             jugador2--;
-            $("#Jugador2").html("Jugador"+numeroJugador+" : "+jugador2);
+            $("#Jugador2").html("J"+numeroJugador+" : "+jugador2);
             break;
         case 3:
             $("#Jugador3").empty();
             jugador3--;
-            $("#Jugador3").html("Jugador"+numeroJugador+" : "+jugador3);
+            $("#Jugador3").html("J"+numeroJugador+" : "+jugador3);
             break;
         case 4:
             $("#Jugador4").empty();
             jugador4--;
-            $("#Jugador4").html("Jugador"+numeroJugador+" : "+jugador4);
+            $("#Jugador4").html("J"+numeroJugador+" : "+jugador4);
             break;
 
     }
@@ -107,7 +111,7 @@ function agregarTableros(cantidadJugadores)
 {
     if (parseInt(cantidadJugadores) === 1)
     {
-        nuevaDiv = obtenerDivJugadorv2(1);
+        nuevaDiv = obtenerDivJugador(1);
         
         
     } else if (parseInt(cantidadJugadores) === 2)
@@ -134,27 +138,26 @@ function agregarTableros(cantidadJugadores)
 }
 
 
-/*
 function obtenerDivJugador(numero)
 {
-   nuevaDiv ="<div class='divInicialBloqueJugador'><div  class='divSegundoBloqueJugador'><a href='#' class='ui-btn' onclick='restar("+numero+")'>-</a>  <a href='#' class='ui-btn' onclick='sumar("+numero+")'>+</a> </div><div class='divTerceroBloqueJugador' ><label id='Jugador"+numero+"'>+ jugador"+numero+":40 +</label><a href='' onclick='aumentarVeneno("+numero+")'><div class='divVeneno' id='Veneno"+numero+"'  >0</div></a></div></div></div>";
+   nuevaDiv = "<div class='divInicialBloqueJugador'><div  class='divSegundoBloqueJugador'><a href='#' class='ui-btn' onclick='restar("+numero+")'>-</a>  <a href='#' class='ui-btn' onclick='sumar("+numero+")'>+</a> </div><div class='divTerceroBloqueJugador' ><label id='Jugador"+numero+"'>+ jugador"+numero+":40 +</label><a href='' onclick='aumentarVeneno("+numero+")'> <div class='divVeneno' id='Veneno"+numero+"'  >0</div></a></div></div></div>";
    return nuevaDiv;
 }
-*/
+
 
 function obtenerDivJugadorv2(numero)
 {
         divRestar = "<div class='izquierda' onclick='restar("+numero+")'> -</div>";
         divSumar = "<div class='derecha' onclick='sumar("+numero+")'> +</div>";
-        divPrincipal = "<div class='principal'><label id='Jugador"+numero+"'>jugador"+numero+":40</label></div>";
+        divPrincipal = "<div class='principal'><p id='Jugador"+numero+"'>J"+numero+":40</p><p id='Veneno"+numero+"'  onclick='aumentarVeneno("+numero+")' style='color: green; font-size: 30px'>0</p> </div>";
         nuevaDiv ="<div class='divInicialBloqueJugador'>"+divRestar+divPrincipal+divSumar+"</div>";
         return nuevaDiv;
 }
 
 function obtenerDivJugadores4(numero){
-        divRestar = "<div class='izquierdaMulti' onclick='restar("+numero+")'> -</div>";
+        divRestar ="<div class='izquierdaMulti' onclick='restar("+numero+")'> -</div>";
         divSumar = "<div class='derechaMulti' onclick='sumar("+numero+")'> +</div>";
-        divPrincipal = "<div class='principalMulti'><label id='Jugador"+numero+"'>jugador"+numero+":40</label></div>";
+        divPrincipal = "<div class='principalMulti'> <div style='height: 50%; '><label id='Jugador"+numero+"' style='padding-top: 50%'>P"+numero+":40 </label></div> <div style='height: 50%; background-image: url(\"img/pirexia2.png\"); background-size: cover; background-position: center;' onclick='aumentarVeneno("+numero+")'><label id='Veneno"+numero+"' style='padding-top: 50%; color: red; font-size: 30px'>0</label> </div></div>";
         nuevaDiv ="<div class='divInicialBloqueJugador'>"+divRestar+divPrincipal+divSumar+"</div>";
         return nuevaDiv;
 }
