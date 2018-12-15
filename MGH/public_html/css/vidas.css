@@ -12,6 +12,7 @@
 
 .divInicialBloqueJugador{
     height: 50%;
+
     
 }
 
@@ -36,11 +37,23 @@
    
 }
 
+.botonVidas {
+    
+    /* height y line height deben ser iguales o el texto va a tomar la propiedad
+    del contenedor abuelo y puede llegar a sobresalir del cuadro como nos paso*/
+    height: 80px;
+    line-height: 80px;
+    /* Le damos solidez al boton*/
+    margin: 1px;
+    border: solid;
+    
+       
 
+}
 
 .izquierda {
     margin-top: 2px;
-    background-color: #f7fb6d;
+    background-color: #9fbbe7;
     width: 10%;
     height: 170px;
     line-height: 170px; 
@@ -58,6 +71,14 @@
     float: left;
     text-align: center;
     font-size: 8vw;
+    
+    /* Queremos la imagen del background en el medio y que no repita y se ajuste al div*/
+
+    background-image: linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)),  url(../img/logogde.jpg);
+     background-position:center;
+     background-repeat:no-repeat;
+     background-size: contain;
+     
 
 }
 
@@ -75,13 +96,25 @@
 
 .izquierdaMulti {
     margin-top: 2px;
-    background-color: #f7fb6d;
+     background-color: #9fbbe7;
     width: 10%;
     height: 250px;
     line-height: 250px; 
     float: left;
     text-align: center;
    
+}
+
+/* el div que contiene al de multijugador*/
+.divPreMulti{
+    
+       /*Rotamos 90 grados*/
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg);
+    
 }
 
 .principalMulti {
@@ -93,13 +126,19 @@
     float: left;
     text-align: center;
     font-size: 8vw;
-    
+     /* Queremos la imagen del background en el medio y que no repita y se ajuste al div*/
+     /*background-image: url(../img/logogde.jpg);*/
+     background-image: linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)),  url(../img/logogde.jpg);
+     background-position:center;
+     background-repeat:no-repeat;
+     background-size: contain;
+      
 }
 
 
 .derechaMulti {
     margin-top: 2px;
-    background-color: #bbb;
+     background-color: #9fbbe7;
     width: 10%;
     line-height: 250px; 
     height: 250px;

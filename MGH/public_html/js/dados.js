@@ -24,19 +24,19 @@ function tirarD6()
              $("#mesaDados").append(obtenerImagenD6(1));
              break;
         case 2:
-             $("#mesaDados").append(obtenerImagenD6(2));
+             $("#mesaDados").append(obtenerVideoD6(2));
              break;
         case 3:
-             $("#mesaDados").append(obtenerImagenD6(3));
+             $("#mesaDados").append(obtenerVideoD6(3));
              break;
         case 4:
-             $("#mesaDados").append(obtenerImagenD6(4));
+             $("#mesaDados").append(obtenerVideoD6(4));
              break;
         case 5:
              $("#mesaDados").append(obtenerImagenD6(5));
              break;
         case 6:
-             $("#mesaDados").append(obtenerImagenD6(6));
+             $("#mesaDados").append(obtenerVideoD6(6));
              break;      
          default:
               $("#mesaDados").append("Ocurrio un error inesperado");
@@ -191,7 +191,7 @@ function obtenerImagenD6(numero){
 
 function obtenerVideoD6(numero)
 {
-     pieza = "<video controls autoplay class='videoDados'>  <source src='./videos/d6/"+numero+".ogg' type='video/ogg'> Tu broser no soporta videos</video> ";
+     pieza = "<video controls autoplay class='videoDados girado90'>  <source src='./img/dados/d6/"+numero+".ogg' type='video/ogg'> Tu broser no soporta videos</video> ";
     return pieza;
 }
 

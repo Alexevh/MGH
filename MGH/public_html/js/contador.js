@@ -20,58 +20,58 @@ function cantJugadores(numero) {
 }
 
 
-function sumar(numeroJugador)
+function sumar(numeroJugador, cantidad)
 {
     switch (numeroJugador) {
 
         case 1:
             $("#Jugador1").empty();
-            jugador1++;
+            jugador1+=cantidad;
             $("#Jugador1").html("J"+numeroJugador+" : "+jugador1);
             $("#Veneno1").html(veneno1);
             break;
         case 2:
             $("#Jugador2").empty();
-            jugador2++;
+            jugador2+=cantidad;
             $("#Jugador2").html("J"+numeroJugador+" : "+jugador2);
             $("#Veneno2").html(veneno2);
             break;
         case 3:
             $("#Jugador3").empty();
-            jugador3++;
+            jugador3+=cantidad;
             $("#Jugador3").html("J"+numeroJugador+" : "+jugador3);
             $("#Veneno3").html(veneno3);
             break;
         case 4:
             $("#Jugador4").empty();
-            jugador4++;
+            jugador4+=cantidad;
             $("#Jugador4").html("J"+numeroJugador+" : "+jugador4);
             $("#Veneno4").html(veneno4);
             break;
     }
 }
 
-function restar(numeroJugador)
+function restar(numeroJugador, cantidad)
 {
     switch (numeroJugador) {
         case 1:
             $("#Jugador1").empty();
-            jugador1--;
+            jugador1-=cantidad;
             $("#Jugador1").html("J"+numeroJugador+" : "+jugador1);
             break;
         case 2:
             $("#Jugador2").empty();
-            jugador2--;
+            jugador2-=cantidad;
             $("#Jugador2").html("J"+numeroJugador+" : "+jugador2);
             break;
         case 3:
             $("#Jugador3").empty();
-            jugador3--;
+            jugador3-=cantidad;
             $("#Jugador3").html("J"+numeroJugador+" : "+jugador3);
             break;
         case 4:
             $("#Jugador4").empty();
-            jugador4--;
+            jugador4-=cantidad;
             $("#Jugador4").html("J"+numeroJugador+" : "+jugador4);
             break;
 
@@ -147,16 +147,34 @@ function obtenerDivJugador(numero)
 
 function obtenerDivJugadorv2(numero)
 {
-        divRestar = "<div class='izquierda' onclick='restar("+numero+")'> -</div>";
-        divSumar = "<div class='derecha' onclick='sumar("+numero+")'> +</div>";
+        
+        divRestar1 = "<div class='botonVidas' onclick='restar("+numero+",1)'> - 1</div>";
+        divRestar5= "<div class='botonVidas' onclick='restar("+numero+",5)'> - 5</div>";
+        divRestar = "<div class='izquierda' >"+divRestar1+divRestar5+" </div>";
+        
+        
+        divSumar1 = "<div class='botonVidas' onclick='sumar("+numero+",1)'> + 1</div>";
+        divSumar5= "<div class='botonVidas' onclick='sumar("+numero+",5)'> + 5</div>";
+        divSumar = "<div class='izquierda' >"+divSumar1+divSumar5+" </div>";
         divPrincipal = "<div class='principal'><p id='Jugador"+numero+"'>J"+numero+":40</p><p id='Veneno"+numero+"'  onclick='aumentarVeneno("+numero+")' style='color: green; font-size: 30px'>0</p> </div>";
         nuevaDiv ="<div class='divInicialBloqueJugador'>"+divRestar+divPrincipal+divSumar+"</div>";
         return nuevaDiv;
 }
 
 function obtenerDivJugadores4(numero){
-        divRestar ="<div class='izquierdaMulti' onclick='restar("+numero+")'> -</div>";
-        divSumar = "<div class='derechaMulti' onclick='sumar("+numero+")'> +</div>";
+       
+        
+        divRestar1 = "<div class='botonVidas' onclick='restar("+numero+",1)'> - 1</div>";
+        divRestar5= "<div class='botonVidas' onclick='restar("+numero+",5)'> - 5</div>";
+        divRestar10= "<div class='botonVidas' onclick='restar("+numero+",10)'> - 10</div>";
+        divRestar = "<div class='izquierdaMulti' >"+divRestar1+divRestar5+divRestar10+" </div>";
+        
+        
+        divSumar1 = "<div class='botonVidas' onclick='sumar("+numero+",1)'> + 1</div>";
+        divSumar5= "<div class='botonVidas' onclick='sumar("+numero+",5)'> + 5</div>";
+        divSumar10= "<div class='botonVidas' onclick='sumar("+numero+",10)'> + 10</div>";
+        divSumar = "<div class='derechaMulti' >"+divSumar1+divSumar5+divSumar10+" </div>";
+        
         divPrincipal = "<div class='principalMulti'> <div style='height: 50%; '><label id='Jugador"+numero+"' style='padding-top: 50%'>P"+numero+":40 </label></div> <div style='height: 50%; background-image: url(\"img/pirexia2.png\"); background-size: cover; background-position: center;' onclick='aumentarVeneno("+numero+")'><label id='Veneno"+numero+"' style='padding-top: 50%; color: red; font-size: 30px'>0</label> </div></div>";
         nuevaDiv ="<div class='divInicialBloqueJugador'>"+divRestar+divPrincipal+divSumar+"</div>";
         return nuevaDiv;
