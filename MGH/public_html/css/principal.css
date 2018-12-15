@@ -18,3 +18,10 @@ propiedad es que declaramos este CSS*/
     z-index:9999; 
     border-radius:0px
 }
+
+.imagenAnterior {
+      background-image: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)),  url(../img/logogde.jpg);
+     background-position:center;
+     background-repeat:repeat;
+     background-size: contain;
+}

@@ -111,7 +111,7 @@ function agregarTableros(cantidadJugadores)
 {
     if (parseInt(cantidadJugadores) === 1)
     {
-        nuevaDiv = obtenerDivJugador(1);
+        nuevaDiv = obtenerDivJugadorv2(1);
         
         
     } else if (parseInt(cantidadJugadores) === 2)
