@@ -46,6 +46,7 @@
     /* Le damos solidez al boton*/
     margin: 1px;
     border: solid;
+    padding: 0px;
     
        
 
@@ -74,7 +75,7 @@
     
     /* Queremos la imagen del background en el medio y que no repita y se ajuste al div*/
 
-    background-image: linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)),  url(../img/logogde.jpg);
+    background-image: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)),  url(../img/logogde.jpg);
      background-position:center;
      background-repeat:no-repeat;
      background-size: contain;
@@ -128,7 +129,7 @@
     font-size: 8vw;
      /* Queremos la imagen del background en el medio y que no repita y se ajuste al div*/
      /*background-image: url(../img/logogde.jpg);*/
-     background-image: linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)),  url(../img/logogde.jpg);
+     background-image: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)),  url(../img/logogde.jpg);
      background-position:center;
      background-repeat:no-repeat;
      background-size: contain;

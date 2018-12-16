@@ -26,6 +26,11 @@ propiedad es que declaramos este CSS*/
      background-size: contain;
 }
 
+/*Vamos a manejar aqui el estilo de la forma de representar la cantidad de vida*/
+.numeroVidas{
+    margin: 0px;
+    font-size: 50px;
+}
 
 /* Fuentes personalizadas */
 

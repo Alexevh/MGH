@@ -159,7 +159,7 @@ function obtenerDivJugadorv2(numero)
         
         etiquetaNombreJugador= "<p class='editable' id='etiquetaJ"+numero+"' contenteditable='true'>J"+numero+"</p>";
         
-        divPrincipal = "<div class='principal'>"+etiquetaNombreJugador+"<p id='Jugador"+numero+"' >40</p><p class='editable' id='Veneno"+numero+"'  onclick='aumentarVeneno("+numero+")' style='color: green; font-size: 30px'>0</p> </div>";
+        divPrincipal = "<div class='principal'>"+etiquetaNombreJugador+"<p class='numeroVidas' id='Jugador"+numero+"' >40</p><p class='editable' id='Veneno"+numero+"'  onclick='aumentarVeneno("+numero+")' style='color: green; font-size: 30px'>0</p> </div>";
         nuevaDiv ="<div class='divInicialBloqueJugador'>"+divRestar+divPrincipal+divSumar+"</div>";
         return nuevaDiv;
 }
@@ -180,7 +180,7 @@ function obtenerDivJugadores4(numero){
         
         etiquetaNombreJugador= "<p id='etiquetaJ"+numero+"' contenteditable='true'>J"+numero+"</p>";
         
-        divPrincipal = "<div class='principalMulti'> <div style='height: 50%; '>"+etiquetaNombreJugador+"<label id='Jugador"+numero+"' style='padding-top: 50%'>P"+numero+":40 </label></div> <div style='height: 50%; background-image: url(\"img/pirexia2.png\"); background-size: cover; background-position: center;' onclick='aumentarVeneno("+numero+")'><label id='Veneno"+numero+"' style='padding-top: 50%; color: red; font-size: 30px'>0</label> </div></div>";
+        divPrincipal = "<div class='principalMulti'> <div style='height: 50%; '>"+etiquetaNombreJugador+"<p class='numeroVidas' id='Jugador"+numero+"' >"+"40 </p></div> <div style='height: 50%; background-image: url(\"img/pirexia2.png\"); background-size: cover; background-position: center;' onclick='aumentarVeneno("+numero+")'><label id='Veneno"+numero+"' style='padding-top: 50%; color: red; font-size: 30px'>0</label> </div></div>";
         nuevaDiv ="<div class='divInicialBloqueJugador'>"+divRestar+divPrincipal+divSumar+"</div>";
         return nuevaDiv;
 }
