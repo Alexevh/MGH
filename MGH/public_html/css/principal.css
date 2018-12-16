@@ -25,3 +25,45 @@ propiedad es que declaramos este CSS*/
      background-repeat:repeat;
      background-size: contain;
 }
+
+
+/* Fuentes personalizadas */
+
+/* La fuente llamada Saga es la que se usa en las cartas sagas*/
+@font-face {
+    font-family: 'Sagas'; /*a name to be used later*/
+    src: url('../fuentes/Sagas/DasRoySmallCaps.ttf') format('truetype'); /*URL to font*/
+}
+
+.FuenteSagas {
+    font-family: 'Sagas';
+    font-size: 25px;
+}
+
+
+@font-face {
+    font-family: 'Listados'; /*a name to be used later*/
+    src: url('../fuentes/M15/belerensmallcaps-bold.ttf') format('truetype'); /*URL to font*/
+}
+
+/* Como estamos usando JQueryMobolie y Bootstrap tenemos que fijar a fuego las fuentes
+personalizadas o las sobreescribe*/
+.FuenteListados {
+    font-family: 'Listados';
+    
+}
+
+@font-face {
+    font-family: 'Noticias'; /*a name to be used later*/
+    src: url('../fuentes/M15/beleren-bold_P1.01.ttf') format('truetype'); /*URL to font*/
+}
+
+/* Como estamos usando JQueryMobolie y Bootstrap tenemos que fijar a fuego las fuentes
+personalizadas o las sobreescribe*/
+.FuenteNoticias {
+    font-family: 'Noticias';
+    
+}
+
+
+

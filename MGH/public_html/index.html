@@ -38,7 +38,7 @@ Sistema APP para MGH
 
             <div class="miHeader" id="cabezalInicio"></div>
             <div role="main" class="ui-content">
-                <div id="portada"  data-inset="true">
+                <div id="portada"  data-inset="true" class="FuenteNoticias">
                 </div>
 
             </div><!-- /content -->
@@ -49,10 +49,10 @@ Sistema APP para MGH
 
         <div id="contacto" data-role="page" >
 
-            <div class="miHeader" id="cabezalContacto"></div>
+            <div class="miHeader " id="cabezalContacto"></div>
 
 
-            <div role="main" class="ui-content">
+            <div role="main" class="ui-content FuenteListados">
                 <b>MGH:</b>
                 <br>
                 <ul>
@@ -81,7 +81,7 @@ Sistema APP para MGH
             <div class="miHeader" id="cabezalReglas"></div>
 
 
-            <div role="main" class="ui-content imagenAnterior">
+            <div role="main" class="ui-content imagenAnterior FuenteNoticias">
                 <h2>Reglas vigentes :</h2>
                 <b>903.</b>&nbsp;<b>Commander</b>
                 <ul><li> <b>903.1.</b>&nbsp;En la variante Commander, cada mazo es liderado por una criatura legendaria designada como el comandante de ese mazo. La variante Commander fue creada y popularizada por fanáticos; existe un comité de reglas independiente que mantiene recursos adicionales en MTGCommander.net. La variante Commander usa todas las reglas normales para un juego de Magic, con los siguientes agregados.
@@ -137,12 +137,12 @@ Sistema APP para MGH
 
 
 
-                <h2>Cartas baneadas de EDH :</h2>
+                <h2 class='FuenteNoticias'>Cartas baneadas de EDH :</h2>
 
 
-                <table width="100%">
+                <table width="100%" class='FuenteNoticias'>
                     <tbody><tr><td valign="top">
-                                <ul>
+                                <ul >
                                     <li><a target="edhcard" href="http://deckbox.org/mtg/Ancestral Recall">Ancestral Recall</a></li>
                                     <li><a target="edhcard" href="http://deckbox.org/mtg/Balance">Balance</a></li>
                                     <li><a target="edhcard" href="http://deckbox.org/mtg/Biorhythm">Biorhythm</a></li>
@@ -205,7 +205,7 @@ Sistema APP para MGH
         </div><!-- /page -->
 
 
-        <div id="contadorVidas" class='cuerpo' data-role="page" >
+        <div id="contadorVidas" class='cuerpo FuenteNoticias' data-role="page" >
 
             <div  id="cabezalcontadorVidas"></div>
 
@@ -231,28 +231,28 @@ Sistema APP para MGH
 
 
         <div data-role="panel" data-position-fixed="true" data-display="push" data-theme="b" id="nav-panel" data-position="left">
-            <ul data-role="listview">
-                <li data-icon="delete"><a href="" data-rel="close">Cerrar menu</a></li>
-                <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#PaginaEventos">Eventos</a></li>
-                <li><a href="#cartasBan">Cartas baneadas</a></li>
-                <li><a href="#PaginaMTG">MTG</a></li>
-                <li><a href="#PaginaMiniaturas">Miniaturas</a></li>
-                <li><a href="#PaginaTienda">Tienda</a></li>
-                <li><a href="#contacto">Contacto</a></li>
-                <li><a href="#ruling">Reglas EDH</a></li>
-                <li><a href="#contadorVidas" onclick="notificar()">Contador de vidas</a></li>
-                <li><a href="#dados" onclick="limpiarPaginaDados()" >Dados</a></li>      
+            <ul data-role="listview" >
+                <li data-icon="delete"  ><a href="" data-rel="close" class="FuenteListados">Cerrar menu</a></li>
+                <li><a href="#inicio" class="FuenteListados">Inicio</a></li>
+                <li><a href="#PaginaEventos" class="FuenteListados">Eventos</a></li>
+                <li><a href="#cartasBan" class="FuenteListados">Cartas baneadas</a></li>
+                <li><a href="#PaginaMTG" class="FuenteListados">MTG</a></li>
+                <li><a href="#PaginaMiniaturas" class="FuenteListados">Miniaturas</a></li>
+                <li><a href="#PaginaTienda" class="FuenteListados">Tienda</a></li>
+                <li><a href="#contacto" class="FuenteListados">Contacto</a></li>
+                <li><a href="#ruling" class="FuenteListados">Reglas EDH</a></li>
+                <li><a href="#contadorVidas" onclick="notificar()" class="FuenteListados">Contador de vidas</a></li>
+                <li><a href="#dados" onclick="limpiarPaginaDados()" class="FuenteListados">Dados</a></li>      
             </ul>
         </div><!-- /panel -->
 
 
 
         <div id="PaginaEventos" data-role="page" >
-            <div class="miHeader"  id="cabezalPaginaEventos"></div>
+            <div class="miHeader"  id="cabezalPaginaEventos" ></div>
 
-            <div role="main" class="ui-content">
-                <ul id="listaNoticiaEventos" data-role="listview" data-inset="true" >
+            <div role="main" class="ui-content" >
+                <ul id="listaNoticiaEventos" data-role="listview" data-inset="true">
                 </ul> 
             </div><!-- /content -->
 
@@ -304,7 +304,7 @@ Sistema APP para MGH
 
 
             <div role="main" class="ui-content imagenAnterior">
-                <div id="contenidoDetalle">
+                <div id="contenidoDetalle" >
 
                 </div>
             </div><!-- /content -->

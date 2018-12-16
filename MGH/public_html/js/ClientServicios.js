@@ -174,7 +174,7 @@ function obtenerCabezalNoticia(categoria, resultado, i)
     }
 
     // Esta parte arma la pieza y la retorna
-    pieza = "<li><a href='#PaginaDetalleNoticia' data-idprod='" +
+    pieza = "<li><a href='#PaginaDetalleNoticia'  class='FuenteListados' data-idprod='" +
             resultado.data[i].attributes.uuid +
             "' data-cat='" + categoria + "' onclick='cargarDetalle($(this))'>" +
             imagen.outerHTML +
