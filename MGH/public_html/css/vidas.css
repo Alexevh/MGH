@@ -63,7 +63,7 @@
 }
 
 .principal {
-    margin-top: 2px;
+    margin-top: 0px;
     background-color: whitesmoke;
     width: 80%;
     /*line-height: 170px; */
@@ -133,6 +133,11 @@
      background-repeat:no-repeat;
      background-size: contain;
       
+}
+
+.editable {
+    margin: 0px;
+   
 }
 
 
