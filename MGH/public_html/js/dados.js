@@ -15,8 +15,13 @@ function limpiarPaginaDados() {
 function tirarD6()
 {
    
-     $("#mesaDados").empty();
+    
+      $("#mesaDados").empty();
+    
+    var div = "<iframe src='DadoCSS.html' style='height: 600px; width: 80%' frameborder='0' class='imagenAnterior'></iframe>"
+    $("#mesaDados").html(div);
      
+     /*
      var resultado = Math.floor((Math.random() * 6) + 1);
     
      switch (resultado){
@@ -42,7 +47,7 @@ function tirarD6()
               $("#mesaDados").append("Ocurrio un error inesperado");
      }
      
-     
+     */
 }
 
 function tirarD12()
@@ -170,7 +175,12 @@ function tirarD20()
 function tirarMoneda(){
     
     $("#mesaDados").empty();
+    
+    var div = "<iframe src='Moneda.html' style='height: 600px; width: 80%; background: #FFFFFF;' frameborder='0'  allowtransparency'></iframe>"
+    $("#mesaDados").html(div);
+               
      
+     /*
      var resultado = Math.floor((Math.random() * 2) + 0);
      switch (resultado){
          case 0:
@@ -179,7 +189,7 @@ function tirarMoneda(){
         case 1:
              $("#mesaDados").append(obtenerImagenMoneda("numero"));
              break;
-     }  
+     }  */
 }
 
 

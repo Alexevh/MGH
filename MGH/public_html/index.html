@@ -24,8 +24,9 @@ Sistema APP para MGH
         <script type="text/javascript" src="js/cordova.js"  charset="utf-8"></script>
         <script src="js/push.js" type="text/javascript"></script>
         <link href="css/principal.css" rel="stylesheet" type="text/css"/>
+        <link href="css/dadoGirador.css" rel="stylesheet" type="text/css"/>
     </head>
-    <body >
+    <body  style="background-color: transparent;">
         <div data-role="page" data-theme="b" id="splash" style="background-color: #9fbbe7;" class="center-screen"> 
 
             <div class="splash">
@@ -194,8 +195,9 @@ Sistema APP para MGH
             <div id="cabezalDados"></div>
 
 
-            <div role="main" class="ui-content">
-                <div id="mesaDados" class="center-screen">
+            <div role="main" class="ui-content" >
+                <div id="mesaDados" class="center-screen imagenAnterior">
+                    <iframe src="DadoCSS.html" style="height: 600px; width: 80%" frameborder="0"></iframe>
                 </div>
             </div>
 
@@ -242,7 +244,7 @@ Sistema APP para MGH
                 <li><a href="#contacto" class="FuenteListados">Contacto</a></li>
                 <li><a href="#ruling" class="FuenteListados">Reglas EDH</a></li>
                 <li><a href="#contadorVidas" onclick="notificar()" class="FuenteListados">Contador de vidas</a></li>
-                <li><a href="#dados" onclick="limpiarPaginaDados()" class="FuenteListados">Dados</a></li>      
+                <li><a href="#dados" onclick="" class="FuenteListados">Dados</a></li>      
             </ul>
         </div><!-- /panel -->
 
