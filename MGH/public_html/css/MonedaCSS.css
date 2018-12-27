@@ -1,6 +1,6 @@
 body {
   padding-top: 50px;
-  background: #F7F7F7;
+ 
   -webkit-perspective: 800px;
 }
 h1{
@@ -19,15 +19,21 @@ h1{
   -webkit-border-radius: 50%;
      -moz-border-radius: 50%;
           border-radius: 50%;
-  -webkit-box-shadow: inset 0 0 45px rgba(255,255,255,.3), 0 12px 20px -10px rgba(0,0,0,.4);
-     -moz-box-shadow: inset 0 0 45px rgba(255,255,255,.3), 0 12px 20px -10px rgba(0,0,0,.4);
-          box-shadow: inset 0 0 45px rgba(255,255,255,.3), 0 12px 20px -10px rgba(0,0,0,.4);
+  
 }
 .side-a {
-  background-color: #bb0000;
+    background-image: url(../img/moneda/caraTransparente.png);
+    background-size: contain;
+    background-position:center;
+     background-repeat:no-repeat;
+  /*background-color: #bb0000;*/
 }
 .side-b {
-  background-color: #3e3e3e;
+    background-image: url(../img/moneda/numeroTransparente.png);
+    background-size: contain;
+    background-position:center;
+     background-repeat:no-repeat;
+  /*background-color: #bb0000;*/
 }
 
 #coin {

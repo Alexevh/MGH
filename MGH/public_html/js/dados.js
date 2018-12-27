@@ -18,7 +18,7 @@ function tirarD6()
     
       $("#mesaDados").empty();
     
-    var div = "<iframe src='DadoCSS.html' style='height: 600px; width: 80%' frameborder='0' class='imagenAnterior'></iframe>"
+    var div = "<iframe src='DadoCSS.html' style='height: 600px; width: 94%' frameborder='0'></iframe>"
     $("#mesaDados").html(div);
      
      /*
