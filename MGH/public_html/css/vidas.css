@@ -8,7 +8,7 @@
     line-height: 42vh;
     /* Le damos solidez al boton*/
     margin: 1px;
-    border: solid;
+    /*border: solid;*/
     padding: 0px;
 }
     
@@ -56,7 +56,7 @@
     line-height: 20vh;
     /* Le damos solidez al boton*/
     margin: 1px;
-    border: solid;
+   /* border: solid;*/
     padding: 0px;
 }
     
@@ -104,7 +104,7 @@
     line-height: 13vh;
     /* Le damos solidez al boton*/
     margin: 1px;
-    border: solid;
+   /* border: solid;*/
     padding: 0px;
 }
     
@@ -151,8 +151,8 @@
     line-height: 13vh;
     /* Le damos solidez al boton*/
     margin: 1px;
-    border: solid;
-    padding: 0px;
+   /* border: solid;*/
+    padding: 1px;
 
 }
     
