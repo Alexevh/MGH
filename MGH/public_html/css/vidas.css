@@ -1,5 +1,203 @@
+
+.botonVidas1 {
+    /* height y line height deben ser iguales o el texto va a tomar la propiedad
+    del contenedor abuelo y puede llegar a sobresalir del cuadro como nos paso*/
+    /*height: 80px;*/
+    height: 42vh;
+    /*line-height: 80px;*/
+    line-height: 42vh;
+    /* Le damos solidez al boton*/
+    margin: 1px;
+    border: solid;
+    padding: 0px;
+}
+    
+.izquierda1 {
+    margin-top: 2px;
+    background-color: #9fbbe7;
+    width: 10%;
+    /*height: 170px;*/
+    height: 86vh;
+    /*line-height: 170px;*/
+    line-height: 86vh;
+    float: left;
+    text-align: center;
+
+}
+
+.principal1 {
+    margin-top: 0px;
+    background-color: whitesmoke;
+    width: 80%;
+    /*line-height: 170px; */
+    /*height: 170px;*/
+    height: 86vh;
+    float: left;
+    text-align: center;
+    font-size: 8vw;
+    
+    /* Queremos la imagen del background en el medio y que no repita y se ajuste al div*/
+
+    background-image: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)),  url(../img/logogde.jpg);
+     background-position:center;
+     background-repeat:no-repeat;
+     background-size: contain;
+     
+
+}
+
+
+.botonVidas2 {
+    /* height y line height deben ser iguales o el texto va a tomar la propiedad
+    del contenedor abuelo y puede llegar a sobresalir del cuadro como nos paso*/
+    /*height: 80px;*/
+    height: 20vh;
+    /*line-height: 80px;*/
+    line-height: 20vh;
+    /* Le damos solidez al boton*/
+    margin: 1px;
+    border: solid;
+    padding: 0px;
+}
+    
+.izquierda2 {
+    margin-top: 2px;
+    background-color: #9fbbe7;
+    width: 10%;
+    /*height: 170px;*/
+    height: 42vh;
+    /*line-height: 170px;*/
+    line-height: 42vh;
+    float: left;
+    text-align: center;
+
+}
+
+.principal2 {
+    margin-top: 0px;
+    background-color: whitesmoke;
+    width: 80%;
+    /*line-height: 170px; */
+    /*height: 170px;*/
+    height: 42vh;
+    float: left;
+    text-align: center;
+    font-size: 8vw;
+    
+    /* Queremos la imagen del background en el medio y que no repita y se ajuste al div*/
+
+    background-image: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)),  url(../img/logogde.jpg);
+     background-position:center;
+     background-repeat:no-repeat;
+     background-size: contain;
+     
+
+}
+
+
+.botonVidas3 {
+    /* height y line height deben ser iguales o el texto va a tomar la propiedad
+    del contenedor abuelo y puede llegar a sobresalir del cuadro como nos paso*/
+    /*height: 80px;*/
+    height: 13vh;
+    /*line-height: 80px;*/
+    line-height: 13vh;
+    /* Le damos solidez al boton*/
+    margin: 1px;
+    border: solid;
+    padding: 0px;
+}
+    
+.izquierda3 {
+    margin-top: 2px;
+    background-color: #9fbbe7;
+    width: 10%;
+    /*height: 170px;*/
+    height: 28vh;
+    /*line-height: 170px;*/
+    line-height: 28vh;
+    float: left;
+    text-align: center;
+
+}
+
+.principal3 {
+    margin-top: 0px;
+    background-color: whitesmoke;
+    width: 80%;
+    /*line-height: 170px; */
+    /*height: 170px;*/
+    height: 28vh;
+    float: left;
+    text-align: center;
+    font-size: 8vw;
+    
+    /* Queremos la imagen del background en el medio y que no repita y se ajuste al div*/
+
+    background-image: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)),  url(../img/logogde.jpg);
+     background-position:center;
+     background-repeat:no-repeat;
+     background-size: contain;
+     
+
+}
+
+.botonVidasMulti {
+    /* height y line height deben ser iguales o el texto va a tomar la propiedad
+    del contenedor abuelo y puede llegar a sobresalir del cuadro como nos paso*/
+    /*height: 80px;*/
+    height: 13vh;
+    /*line-height: 80px;*/
+    line-height: 13vh;
+    /* Le damos solidez al boton*/
+    margin: 1px;
+    border: solid;
+    padding: 0px;
+
+}
+    
+.izquierdaMulti {
+    margin-top: 2px;
+     background-color: #9fbbe7;
+    width: 10%;
+    height: 42vh;
+    line-height: 42vh; 
+    float: left;
+    text-align: center;
+   
+    }
+    
+.principalMulti {
+    margin-top: 2px;
+    background-color: whitesmoke;
+    width: 30%;
+    /*line-height: 250px; */
+    height: 42vh;
+    float: left;
+    text-align: center;
+    font-size: 8vw;
+     /* Queremos la imagen del background en el medio y que no repita y se ajuste al div*/
+     /*background-image: url(../img/logogde.jpg);*/
+     background-image: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)),  url(../img/logogde.jpg);
+     background-position:center;
+     background-repeat:no-repeat;
+     background-size: contain;
+     
+}
+
+.derechaMulti {
+    margin-top: 2px;
+     background-color: #9fbbe7;
+    width: 10%;
+    height: 42vh;
+    line-height: 42vh; 
+    float: left;
+    text-align: center;
+    
+}
+
 .cuerpo {
-    background-color: #aacdf7;
+   background-color: #aacdf7;
    background-image: linear-gradient(#aacdf7, #f7fb6d);
 }
 
@@ -12,7 +210,7 @@
 
 .divInicialBloqueJugador{
     height: 50%;
-
+    
     
 }
 
@@ -20,6 +218,11 @@
    width: 45%;
    display:inline-block;
    
+}
+
+.principal1
+{
+     flex-wrap: wrap;
 }
 
 .divTerceroBloqueJugador{
@@ -37,75 +240,6 @@
    
 }
 
-.botonVidas {
-    
-    /* height y line height deben ser iguales o el texto va a tomar la propiedad
-    del contenedor abuelo y puede llegar a sobresalir del cuadro como nos paso*/
-    height: 80px;
-    line-height: 80px;
-    /* Le damos solidez al boton*/
-    margin: 1px;
-    border: solid;
-    padding: 0px;
-    
-       
-
-}
-
-.izquierda {
-    margin-top: 2px;
-    background-color: #9fbbe7;
-    width: 10%;
-    height: 170px;
-    line-height: 170px; 
-    float: left;
-    text-align: center;
-   
-}
-
-.principal {
-    margin-top: 0px;
-    background-color: whitesmoke;
-    width: 80%;
-    /*line-height: 170px; */
-    height: 170px;
-    float: left;
-    text-align: center;
-    font-size: 8vw;
-    
-    /* Queremos la imagen del background en el medio y que no repita y se ajuste al div*/
-
-    background-image: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)),  url(../img/logogde.jpg);
-     background-position:center;
-     background-repeat:no-repeat;
-     background-size: contain;
-     
-
-}
-
-
-.derecha {
-    margin-top: 2px;
-    background-color: #bbb;
-    width: 10%;
-    line-height: 170px; 
-    height: 170px;
-    float: left;
-    text-align: center;
-  
-}
-
-.izquierdaMulti {
-    margin-top: 2px;
-     background-color: #9fbbe7;
-    width: 10%;
-    height: 250px;
-    line-height: 250px; 
-    float: left;
-    text-align: center;
-   
-}
-
 /* el div que contiene al de multijugador*/
 .divPreMulti{
     
@@ -118,40 +252,10 @@
     
 }
 
-.principalMulti {
-    margin-top: 2px;
-    background-color: whitesmoke;
-    width: 30%;
-    /*line-height: 250px; */
-    height: 250px;
-    float: left;
-    text-align: center;
-    font-size: 8vw;
-     /* Queremos la imagen del background en el medio y que no repita y se ajuste al div*/
-     /*background-image: url(../img/logogde.jpg);*/
-     background-image: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)),  url(../img/logogde.jpg);
-     background-position:center;
-     background-repeat:no-repeat;
-     background-size: contain;
-      
-}
-
 .editable {
     margin: 0px;
-   
+    height: 7vh;
 }
-
-
-.derechaMulti {
-    margin-top: 2px;
-     background-color: #9fbbe7;
-    width: 10%;
-    line-height: 250px; 
-    height: 250px;
-    float: left;
-    text-align: center;
-}
-
 .contenedor {
     width: 100%;
 }
@@ -168,37 +272,20 @@
     max-width: 30%;
 }
 
-/*
-
-.controlIzq {
-    width: 10%;
-    height: 100px;
-    float: left;
-    text-align: center;
-    display: inline-block;
-}
-        
-.controlDer {
-    width: 10%;
-    height: 100px;
-    float: right;
-    text-align: center;
-    display: inline-block;
-}
-#Veneno1{
-
-    position: absolute;
-    text-align: center;
-    font-size: 2vw;
-    margin-left: 55%;
-    margin-top: -6%;
-    color: red;
-
+.principal1 
+{
+ display: flex;
+  justify-content:center;
+    align-content:center;
+    flex-direction:column; /* column | row */  
+    
 }
 
-
-.imgVeneno{
-    width: 10%;
-    height: 30%;
+.principal2
+{
+ display: flex;
+  justify-content:center;
+    align-content:center;
+    flex-direction:column; /* column | row */  
+    
 }
-*/

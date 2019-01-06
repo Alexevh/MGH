@@ -111,19 +111,19 @@ function agregarTableros(cantidadJugadores)
 {
     if (parseInt(cantidadJugadores) === 1)
     {
-        nuevaDiv = obtenerDivJugadorv2(1);
+        nuevaDiv = obtenerDivJugadorv2(1,1);
         
         
     } else if (parseInt(cantidadJugadores) === 2)
     {
-        DivP1 = obtenerDivJugadorv2(1);
-        DivP2 = obtenerDivJugadorv2(2);
+        DivP1 = obtenerDivJugadorv2(1,2);
+        DivP2 = obtenerDivJugadorv2(2,2);
         nuevaDiv = DivP1+DivP2;
     }else if (parseInt(cantidadJugadores) === 3)
     {
-        DivP1 = obtenerDivJugadorv2(1);
-        DivP2 = obtenerDivJugadorv2(2);
-        DivP3 = obtenerDivJugadorv2(3);  
+        DivP1 = obtenerDivJugadorv2(1,3);
+        DivP2 = obtenerDivJugadorv2(2,3);
+        DivP3 = obtenerDivJugadorv2(3,3);  
         nuevaDiv = DivP1+DivP2+DivP3;
     }else if (parseInt(cantidadJugadores) === 4)
     {
@@ -137,29 +137,21 @@ function agregarTableros(cantidadJugadores)
     $("#tableroJugadores").append(nuevaDiv);
 }
 
-
-function obtenerDivJugador(numero)
-{
-   nuevaDiv = "<div class='divInicialBloqueJugador'><div  class='divSegundoBloqueJugador'><a href='#' class='ui-btn' onclick='restar("+numero+")'>-</a>  <a href='#' class='ui-btn' onclick='sumar("+numero+")'>+</a> </div><div class='divTerceroBloqueJugador' ><label id='Jugador"+numero+"'>+ jugador"+numero+":40 +</label><a href='' onclick='aumentarVeneno("+numero+")'> <div class='divVeneno' id='Veneno"+numero+"'  >0</div></a></div></div></div>";
-   return nuevaDiv;
-}
-
-
-function obtenerDivJugadorv2(numero)
+function obtenerDivJugadorv2(numero,cant)
 {
         
-        divRestar1 = "<div class='botonVidas' onclick='restar("+numero+",1)'> - 1</div>";
-        divRestar5= "<div class='botonVidas' onclick='restar("+numero+",5)'> - 5</div>";
-        divRestar = "<div class='izquierda' >"+divRestar1+divRestar5+" </div>";
+        divRestar1 = "<div class='botonVidas"+cant+"' onclick='restar("+numero+",1)'> - 1</div>";
+        divRestar5= "<div class='botonVidas"+cant+"' onclick='restar("+numero+",5)'> - 5</div>";
+        divRestar = "<div class='izquierda"+cant+"' >"+divRestar1+divRestar5+" </div>";
         
         
-        divSumar1 = "<div class='botonVidas' onclick='sumar("+numero+",1)'> + 1</div>";
-        divSumar5= "<div class='botonVidas' onclick='sumar("+numero+",5)'> + 5</div>";
-        divSumar = "<div class='izquierda' >"+divSumar1+divSumar5+" </div>";
+        divSumar1 = "<div class='botonVidas"+cant+"' onclick='sumar("+numero+",1)'> + 1</div>";
+        divSumar5= "<div class='botonVidas"+cant+"' onclick='sumar("+numero+",5)'> + 5</div>";
+        divSumar = "<div class='izquierda"+cant+"' >"+divSumar1+divSumar5+" </div>";
         
         etiquetaNombreJugador= "<p class='editable' id='etiquetaJ"+numero+"' contenteditable='true'>J"+numero+"</p>";
         
-        divPrincipal = "<div class='principal'>"+etiquetaNombreJugador+"<p class='numeroVidas' id='Jugador"+numero+"' >40</p><p class='editable' id='Veneno"+numero+"'  onclick='aumentarVeneno("+numero+")' style='color: green; font-size: 30px'>0</p> </div>";
+        divPrincipal = "<div class='principal"+cant+"'>"+etiquetaNombreJugador+"<p class='numeroVidas' id='Jugador"+numero+"' >40</p><p class='editable' id='Veneno"+numero+"'  onclick='aumentarVeneno("+numero+")' style='color: green; font-size: 5vh'>0</p> </div>";
         nuevaDiv ="<div class='divInicialBloqueJugador'>"+divRestar+divPrincipal+divSumar+"</div>";
         return nuevaDiv;
 }
@@ -167,20 +159,21 @@ function obtenerDivJugadorv2(numero)
 function obtenerDivJugadores4(numero){
        
         
-        divRestar1 = "<div class='botonVidas' onclick='restar("+numero+",1)'>-1</div>";
-        divRestar5= "<div class='botonVidas' onclick='restar("+numero+",5)'>-5</div>";
-        divRestar10= "<div class='botonVidas' onclick='restar("+numero+",10)'>10</div>";
+        divRestar1 = "<div class='botonVidasMulti' onclick='restar("+numero+",1)'>-1</div>";
+        divRestar5= "<div class='botonVidasMulti' onclick='restar("+numero+",5)'>-5</div>";
+        divRestar10= "<div class='botonVidasMulti' onclick='restar("+numero+",10)'>10</div>";
         divRestar = "<div class='izquierdaMulti' >"+divRestar1+divRestar5+divRestar10+" </div>";
         
         
-        divSumar1 = "<div class='botonVidas' onclick='sumar("+numero+",1)'> +1</div>";
-        divSumar5= "<div class='botonVidas' onclick='sumar("+numero+",5)'> +5</div>";
-        divSumar10= "<div class='botonVidas' onclick='sumar("+numero+",10)'>10</div>";
+        divSumar1 = "<div class='botonVidasMulti' onclick='sumar("+numero+",1)'> +1</div>";
+        divSumar5= "<div class='botonVidasMulti' onclick='sumar("+numero+",5)'> +5</div>";
+        divSumar10= "<div class='botonVidasMulti' onclick='sumar("+numero+",10)'>10</div>";
         divSumar = "<div class='derechaMulti' >"+divSumar1+divSumar5+divSumar10+" </div>";
         
         etiquetaNombreJugador= "<p id='etiquetaJ"+numero+"' contenteditable='true'>J"+numero+"</p>";
+        divVeneno = "<p class='editable' id='Veneno"+numero+"'  onclick='aumentarVeneno("+numero+")' style='color: green; font-size: 5vh'>0</p> ";
         
-        divPrincipal = "<div class='principalMulti'> <div style='height: 50%; '>"+etiquetaNombreJugador+"<p class='numeroVidas' id='Jugador"+numero+"' >"+"40 </p></div> <div style='height: 50%; background-image: url(\"img/pirexia2.png\"); background-size: cover; background-position: center;' onclick='aumentarVeneno("+numero+")'><label id='Veneno"+numero+"' style='padding-top: 50%; color: red; font-size: 30px'>0</label> </div></div>";
+        divPrincipal = "<div class='principalMulti'> <div style='height: 21vh; '>"+etiquetaNombreJugador+"<p class='numeroVidas' id='Jugador"+numero+"' >"+"40 </p></div> "+divVeneno+"  </div></div>";
         nuevaDiv ="<div class='divInicialBloqueJugador'>"+divRestar+divPrincipal+divSumar+"</div>";
         return nuevaDiv;
 }
