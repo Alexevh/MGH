@@ -19,6 +19,7 @@ function onDeviceReady() {
 function inicioApp()
 {
     //ocultarAlertas();
+    paginaActiva();
     obtenerNoticiaPortada();
     cargarEventos();
     cargarMiniaturas();
@@ -26,28 +27,111 @@ function inicioApp()
     cargarMTG();
     cargarHeadersYFooters();
     refrescarNoticias();
-    
-   
+    db = window.openDatabase("db","1.0","estadisticasUso",1024*1024*5);
+    db.transaction(crearbd,erroresBd,paginaActiva);
 }
+
+function crearbd(tx){
+    tx.executeSql("DROP TABLE TiempoUso");
+    tx.executeSql("CREATE TABLE IF NOT EXISTS TiempoUso(id INTEGER PRIMARY KEY, pagina TEXT, tiempo TEXT)");
+}
+
+function erroresBd(results){
+    console.log(results.message);
+}
+
 
 function ocultarAlertas()
 {
-    $(".alert").alert('close')
+    $(".alert").alert('close');
 }
 
 var timer;
 function refrescarNoticias(){
     timer = setInterval(function(){
         cargarEventos();
+        obtenerDatosParaEnviar();
         //notificar();
-    }, 100000);
+    }, 15000);
     //300.000 equivalen a 5 min
+}
+
+function verificarNoticiasAEnviar(){
+    timer = setInterval(function(){
+        obtenerDatosParaEnviar();
+        //notificar();
+    }, 15000);
+}
+
+var pagActivaAnterior = null;
+var pagActivaActual = null;
+var pagActivaAux = null;
+var tiempo = 1;
+function paginaActiva(){
+    timer = setInterval(function(){
+        pagActivaAux = $.mobile.activePage.attr("id");
+        console.log(pagActivaAux);
+        if (pagActivaAux !== "nav-panel" && pagActivaAux !== "splash" && pagActivaAux !== pagActivaActual){
+            pagActivaAnterior = pagActivaActual;
+            pagActivaActual = pagActivaAux;
+            //insertar en bd el tiempo que se tuvo en la pagina
+            db.transaction(function(tx){
+                tx.executeSql("SELECT COUNT(1) AS cantidad FROM TiempoUso",[],function(tx,results){
+                    var id = results.rows.item(0).cantidad+1;
+                    tx.executeSql("INSERT INTO TiempoUso VALUES ("+id+",'"+pagActivaAnterior+"','"+tiempo+"')");
+                });
+            },erroresBd,function(){tiempo=1;});
+        }else {
+            tiempo++;
+        }
+    }, 1000);
 }
 
 function cerrarNotificacion(){
     
 }
 
+function obtenerDatosParaEnviar(){
+
+    resultado = false;
+    db.transaction(function(tx){
+        tx.executeSql("SELECT id,pagina,tiempo FROM TiempoUso",[],function(tx,results){
+            for(var i = 1; i < results.rows.length; i++){
+                envioDeDatos(results.rows.item(i).id,results.rows.item(i).pagina,results.rows.item(i).tiempo);
+            }
+        });
+    },erroresBd);
+}
+
+function envioDeDatos(id,pagina,tiempo){
+    fechaAux = new Date();
+    fecha = fechaAux.getFullYear()+ "-"+ fechaAux.getMonth()+1+"-"+fechaAux.getDate();
+    console.log(id,pagina,tiempo);
+    usuario = "admin";
+    
+    
+    $.ajax({
+        url: "http://colector.montevideo-gh.com/colectar.php?usuario=admin&pass=sarasa2019&pagina="+pagina+"&tiempo="+tiempo+"&fecha="+fecha,
+        //url: "http://colector.montevideo-gh.com/colectar.php",
+        type: "POST",       
+        dataType: "json",
+        data: {},
+        async: true,
+        success: function(){
+           db.transaction(function(tx){
+               tx.executeSql("DELETE FROM TiempoUso WHERE id="+id);
+           },erroresBd);
+        },
+        error: function(res){
+            console.log(res);
+        }
+    });
+}
+
+function successGenerico(results){
+    console.log(results);
+    console.log("tranqui");
+}
 
 function notificar(){
  
@@ -78,13 +162,13 @@ function obtenerNoticiasPorCategoria(categoria, cantidad)
           
            
             $("#listaNoticia" + categoria).empty();
-            console.log(res);
+            //console.log(res);
             resultado = res;
             
             /* Si es un evento me interesa guardar el ID para controlarlo*/
              if (categoria==="Eventos")
            {
-               ultimoeventoTS = obtenerTSNoticia(resultado, 0)
+               ultimoeventoTS = obtenerTSNoticia(resultado, 0);
            }
 
             for (var i = 0; i < resultado.data.length; i++)
@@ -179,7 +263,7 @@ function obtenerCabezalNoticia(categoria, resultado, i)
             "' data-cat='" + categoria + "' onclick='cargarDetalle($(this))'>" +
             imagen.outerHTML +
             resultado.data[i].attributes.title +
-            "</a> <a class='ui-btn  ui-btn-icon-right'href='#'</a></li>"
+            "</a> <a class='ui-btn  ui-btn-icon-right'href='#'</a></li>";
 
     return pieza;
 }
@@ -230,7 +314,7 @@ function obtenerNoticiaPorUUID(categoria, uuid)
         success: function (res) {
 
             //alert('funciona');
-            console.log(res);
+            //console.log(res);
             resultado = res;
             return resultado;
 
@@ -254,7 +338,7 @@ function obtenerNoticiaPortada() {
         success: function (res) {
 
             //alert('funciona');
-            console.log(res);
+            //console.log(res);
             resultado = res;
 
 
