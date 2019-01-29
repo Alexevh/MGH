@@ -52,7 +52,7 @@ function refrescarNoticias(){
         cargarEventos();
         obtenerDatosParaEnviar();
         //notificar();
-    }, 150000);
+    }, 4500000);
     //300.000 equivalen a 5 min
 }
 
