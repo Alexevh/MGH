@@ -32,7 +32,7 @@ function inicioApp()
 }
 
 function crearbd(tx){
-    tx.executeSql("DROP TABLE TiempoUso");
+    //tx.executeSql("DROP TABLE TiempoUso");
     tx.executeSql("CREATE TABLE IF NOT EXISTS TiempoUso(id INTEGER PRIMARY KEY, pagina TEXT, tiempo TEXT)");
 }
 
@@ -52,7 +52,7 @@ function refrescarNoticias(){
         cargarEventos();
         obtenerDatosParaEnviar();
         //notificar();
-    }, 15000);
+    }, 150000);
     //300.000 equivalen a 5 min
 }
 
@@ -60,7 +60,7 @@ function verificarNoticiasAEnviar(){
     timer = setInterval(function(){
         obtenerDatosParaEnviar();
         //notificar();
-    }, 15000);
+    }, 150000);
 }
 
 var pagActivaAnterior = null;
@@ -103,7 +103,11 @@ function obtenerDatosParaEnviar(){
     },erroresBd);
 }
 
+
+
 function envioDeDatos(id,pagina,tiempo){
+    
+   
     fechaAux = new Date();
     fecha = fechaAux.getFullYear()+ "-"+ fechaAux.getMonth()+1+"-"+fechaAux.getDate();
     console.log(id,pagina,tiempo);
@@ -111,10 +115,10 @@ function envioDeDatos(id,pagina,tiempo){
     
     
     $.ajax({
-        url: "http://colector.montevideo-gh.com/colectar.php?usuario=admin&pass=sarasa2019&pagina="+pagina+"&tiempo="+tiempo+"&fecha="+fecha,
-        //url: "http://colector.montevideo-gh.com/colectar.php",
-        type: "POST",       
+        url: "http://colector.montevideo-gh.com/colectar.php?usuario=admin&pass=sarasa2019&pagina="+pagina+"&tiempo="+tiempo+"&fecha="+fecha,        
+        type: "GET",       
         dataType: "json",
+        crossDomain: true,
         data: {},
         async: true,
         success: function(){
